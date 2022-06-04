@@ -1,5 +1,6 @@
 # NetDevOps with Ansible + Meraki + Github Actions 
 
+## NOTE this demo clones and updates a Repo from here: https://github.com/sttrayno/Meraki-Ansible-Deployment.git
 When it comes to enterprise IT more and more organisations are looking to standardise their tooling for the configuration and management of these networks. An increasingly popular tool is the use of Ansible as part of a wider service chain to standardise what deployments look like across multiple different vendors and platforms.
 
 In this short guide I will be showing how we can use Ansible and Cisco Meraki to automate the deployment of branches in the Meraki platform all the way from the creation of networks, claiming of devices, binding of network templates and updating network specific details. This integration could also include a ITSM system such as ServiceNow or Jira which would have a handoff to Ansible to generate a data structure such as a CSV or YAML file which Ansible will use to create the network configuration in our examples. However in this exampel we'll create the YAML files manually for simplicity, but keep in mind that an ITSM would likely kick the process off.
