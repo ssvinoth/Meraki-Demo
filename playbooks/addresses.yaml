@@ -1,7 +1,7 @@
 ---
  subnet-2:
     network_name: Scranton-Branch-1338
-    template_name: Store Template
+    template_name: Branch Template
     name: Corp
     vlan_id: 10
     subnet: 10.10.10.0/24
@@ -9,7 +9,7 @@
 
  subnet-3:
     network_name: Scranton-Branch-1338
-    template_name: Store Template
+    template_name: Branch Template
     name: User
     vlan_id: 20
     subnet: 10.20.10.0/24
@@ -17,7 +17,7 @@
 
  subnet-4:
     network_name: Scranton-Branch-1338
-    template_name: Store Template
+    template_name: Branch Template
     name: IOT
     vlan_id: 30
     subnet: 10.30.10.0/24
