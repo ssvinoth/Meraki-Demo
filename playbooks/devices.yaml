@@ -1,8 +1,8 @@
 ---
  device-1:
-    network_name: Scranton-Branch-1338
+    network_name: Scranton-Branch-ICON
     template_name: Branch Template
-    device_name: SCR-1338-MX-1
+    device_name: SCR-ICON-MX-1
     device_type: MX64
     serial_no: Q2KN-6BX7-NVF8
     vlan_id: 1
@@ -11,9 +11,9 @@
     dns_server2: 208.67.220.220
 
  device-2:
-    network_name: Scranton-Branch-1338
+    network_name: Scranton-Branch-ICON
     template_name: Branch Template
-    device_name: SCR-1338-MS-1
+    device_name: SCR-ICON-MS-1
     device_type: MS120-48LP
     serial_no: 	Q2GX-JLGD-HLJ6
     vlan_id: 1
@@ -22,9 +22,9 @@
     dns_server2: 208.67.220.220
     
  device-3:
-    network_name: Scranton-Branch-1338
+    network_name: Scranton-Branch-ICON
     template_name: Branch Template
-    device_name: SCR-1338-MR-1
+    device_name: SCR-ICON-MR-1
     device_type: MR72
     serial_no: 	Q2DK-2RKY-4AQS
     vlan_id: 1
