@@ -1,6 +1,6 @@
 ---
  device-1:
-    network_name: Scranton-Branch-1338
+    network_name: Scranton-Branch-ICON
     template_name: Branch Template
     device_name: SCR-1338-MX-1
     device_type: MX64
