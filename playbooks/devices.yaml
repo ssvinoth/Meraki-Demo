@@ -4,7 +4,7 @@
     template_name: Branch Template
     device_name: SCR-ICON-MX-1
     device_type: MX64
-    serial_no: Q2KN-6BX7-NVF8
+    serial_no: Q2KN-XXXX-XXXX
     vlan_id: 1
     gateway_ip: n/a
     dns_server1: 208.67.222.222
