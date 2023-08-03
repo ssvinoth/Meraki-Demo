@@ -1,7 +1,7 @@
 ---
  device-1:
     network_name: Scranton-Branch-ICON
-    template_name: Branch Template
+    template_name: Store Template
     device_name: SCR-ICON-MX-1
     device_type: MX64
     serial_no: Q2JY-GN6G-T69C
@@ -12,7 +12,7 @@
 
  device-2:
     network_name: Scranton-Branch-ICON
-    template_name: Branch Template
+    template_name: Store Template
     device_name: SCR-ICON-MS-1
     device_type: MS120-48LP
     serial_no: 	Q2GX-JLGD-HLJ6
@@ -23,7 +23,7 @@
     
  device-3:
     network_name: Scranton-Branch-ICON
-    template_name: Branch Template
+    template_name: Store Template
     device_name: SCR-ICON-MR-1
     device_type: MR72
     serial_no: 	Q2DK-2RKY-4AQS
