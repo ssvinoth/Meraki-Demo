@@ -18,7 +18,7 @@
         name: addresses
 
     - name: Create site network
-      meraki_network:
+      cisco.meraki.meraki_network:
         auth_key: "{{ auth_key }}"
         state: present
         org_name: "{{ org_name }}"
@@ -32,7 +32,7 @@
       when: "'device-1' in item.key"
 
     - name: Add devices to Network
-      meraki_device:
+      cisco.meraki.meraki_device:
         auth_key: "{{ auth_key }}"
         org_name: "{{ org_name }}"
         net_id: "{{ off_network.results.0.data.id }}"
@@ -42,7 +42,7 @@
       loop: "{{ lookup('dict', devices, wantlist=True) }}"
 
     - name: Update device Information
-      meraki_device:
+      cisco.meraki.meraki_device:
         auth_key: "{{ auth_key }}"
         org_name: "{{ org_name }}"
         net_id: "{{ off_network.results.0.data.id }}"
@@ -55,7 +55,7 @@
 
 
     - name: Bind a template from a network
-      meraki_config_template:
+      cisco.meraki.meraki_config_template:
         auth_key: "{{ auth_key }}"
         state: present
         org_name: "{{ org_name }}"
@@ -66,7 +66,7 @@
       when: "'device-1' in item.key"
 
     - name: Add subnets
-      meraki_vlan:
+      cisco.meraki.meraki_vlan:
         auth_key: "{{ auth_key }}"
         org_name: "{{ org_name }}"
         net_id: "{{ off_network.results.0.data.id }}"
