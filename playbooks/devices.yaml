@@ -1,6 +1,6 @@
 ---
  device-1:
-    network_name: Scranton-Branch-ICON
+    network_name: Branch-Oren
     template_name: Store Template
     device_name: SCR-ICON-MX-1
     device_type: MX64
@@ -11,7 +11,7 @@
     dns_server2: 208.67.220.220
 
  device-2:
-    network_name: Scranton-Branch-ICON
+    network_name: Branch-Oren
     template_name: Store Template
     device_name: SCR-ICON-MS-1
     device_type: MS120-48LP
@@ -22,7 +22,7 @@
     dns_server2: 208.67.220.220
     
  device-3:
-    network_name: Scranton-Branch-ICON
+    network_name: Branch-Oren
     template_name: Store Template
     device_name: SCR-ICON-MR-1
     device_type: MR72
