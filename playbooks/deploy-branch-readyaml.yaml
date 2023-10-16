@@ -21,7 +21,6 @@
       cisco.meraki.networks:
         meraki_api_key: "{{ meraki_api_key }}"
         state: present
-        organizationId: "{{ org_name }}"
         name: "{{ item.value.network_name }}"
         productTypes:
           - switch
