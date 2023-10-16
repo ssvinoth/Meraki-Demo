@@ -3,7 +3,7 @@
   hosts: localhost
   vars:
     meraki_api_key: "{{ meraki_key }}"
-    org_name: "{{ org_name }}"
+    org_name: "Red Hat"
 
   tasks:
 
