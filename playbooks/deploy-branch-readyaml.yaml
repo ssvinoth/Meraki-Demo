@@ -45,9 +45,9 @@
       cisco.meraki.meraki_device:
         meraki_api_key: "{{ meraki_api_key }}"
         organizationId: "{{ org_name }}"
-        net_id: "{{ off_network.results.0.data.id }}"
+        networkId: "{{ off_network.results.0.data.id }}"
         state: present
-        serial: "{{ item.value.serial_no }}"
+        serials: "{{ item.value.serial_no }}"
         name: " {{ item.value.device_name }}"
         move_map_marker: no
       register: off_update_dev1
