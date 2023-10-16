@@ -18,12 +18,12 @@
         name: addresses
 
     - name: Create site network
-      cisco.meraki.meraki_network:
-        auth_key: "{{ auth_key }}"
+      cisco.meraki.networks:
+        meraki_api_key: "{{ auth_key }}"
         state: present
-        org_name: "{{ org_name }}"
+        organizationId: "{{ org_name }}"
         name: "{{ item.value.network_name }}"
-        type:
+        productTypes:
           - switch
           - appliance
           - wireless
@@ -34,7 +34,7 @@
     - name: Add devices to Network
       cisco.meraki.meraki_device:
         auth_key: "{{ auth_key }}"
-        org_name: "{{ org_name }}"
+        organizationId: "{{ org_name }}"
         net_id: "{{ off_network.results.0.data.id }}"
         state: present
         serial: "{{ item.value.serial_no }}"
@@ -44,7 +44,7 @@
     - name: Update device Information
       cisco.meraki.meraki_device:
         auth_key: "{{ auth_key }}"
-        org_name: "{{ org_name }}"
+        organizationId: "{{ org_name }}"
         net_id: "{{ off_network.results.0.data.id }}"
         state: present
         serial: "{{ item.value.serial_no }}"
@@ -58,7 +58,7 @@
       cisco.meraki.meraki_config_template:
         auth_key: "{{ auth_key }}"
         state: present
-        org_name: "{{ org_name }}"
+        organizationId: "{{ org_name }}"
         net_name: "{{ item.value.network_name }}"
         config_template: "{{ item.value.template_name }}"
       delegate_to: localhost
@@ -69,7 +69,7 @@
       cisco.meraki.networks_appliance_vlans:
         meraki_api_key: "{{ auth_key }}"
         org_name: "{{ org_name }}"
-        net_id: "{{ off_network.results.0.data.id }}"
+        networkId: "{{ off_network.results.0.data.id }}"
         state: present
         name: "{{ item.value.name }}"
         vlanId: "{{ item.value.vlan_id }}"
