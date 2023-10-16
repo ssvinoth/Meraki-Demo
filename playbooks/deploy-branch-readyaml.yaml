@@ -27,8 +27,6 @@
           - switch
           - appliance
           - wireless
-      loop: "{{ lookup('dict', devices, wantlist=True) }}"
-      when: "'device-1' in item.key"
 
     - name: Add devices to Network
       cisco.meraki.networks_devices_claim:
