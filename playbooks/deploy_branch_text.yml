@@ -1,0 +1,29 @@
+---
+- name: meraki deployment
+  hosts: localhost
+  vars:
+    meraki_api_key: "{{ meraki_key }}"
+    org_name: "{{ org_name }}"
+
+  tasks:
+
+    - name: include variables for devices
+      include_vars:
+        file: devices.yaml
+        name: devices
+
+    - name: include variables for addresses
+      include_vars:
+        file: addresses.yaml
+        name: addresses
+
+    - name: Create site network
+      cisco.meraki.networks:
+        meraki_api_key: "{{ meraki_api_key }}"
+        organizationId: "{{ org_name }}"
+        state: present
+        name: "Branch-Oren"
+        productTypes:
+          - switch
+          - appliance
+          - wireless
