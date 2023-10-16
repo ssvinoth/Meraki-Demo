@@ -20,9 +20,9 @@
     - name: Create site network
       cisco.meraki.networks:
         meraki_api_key: "{{ meraki_api_key }}"
-        organizationId: "{{ org_name }}"
         state: present
         name: "Branch-Oren"
+        organizationId: "Red Hat"
         productTypes:
           - switch
           - appliance
