@@ -22,11 +22,12 @@
         meraki_api_key: "{{ meraki_api_key }}"
         organizationId: "{{ org_name }}"
         state: present
-        name: "{{ item.value.network_name }}"
+        name: "Branch Oren"
         productTypes:
           - switch
           - appliance
           - wireless
+        
 
     - name: Add devices to Network
       cisco.meraki.networks_devices_claim:
