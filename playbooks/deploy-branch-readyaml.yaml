@@ -27,7 +27,6 @@
           - switch
           - appliance
           - wireless
-      register: off_network
       loop: "{{ lookup('dict', devices, wantlist=True) }}"
       when: "'device-1' in item.key"
 
