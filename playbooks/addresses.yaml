@@ -3,7 +3,7 @@
     network_name: Scranton-Branch-ICON
     template_name: Branch Template
     name: Corp
-    vlan_id: 10
+    vlanId: 10
     subnet: 10.10.10.0/24
     default_gw: 10.10.10.1
 
@@ -11,7 +11,7 @@
     network_name: Scranton-Branch-ICON
     template_name: Branch Template
     name: User
-    vlan_id: 20
+    vlanId: 20
     subnet: 10.20.10.0/24
     default_gw: 10.20.10.1
 
@@ -19,6 +19,6 @@
     network_name: Scranton-Branch-ICON
     template_name: Branch Template
     name: IOT
-    vlan_id: 30
+    vlanId: 30
     subnet: 10.30.10.0/24
     default_gw: 10.30.10.1
