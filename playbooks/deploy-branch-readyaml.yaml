@@ -38,21 +38,9 @@
         networkId: "{{ off_network.results.0.data.id }}"
         state: present
         serials: "{{ item.value.serial_no }}"
+        name: " {{ item.value.device_name }}"
       register: off_add_dev1
       loop: "{{ lookup('dict', devices, wantlist=True) }}"
-
-    - name: Update device Information
-      cisco.meraki.meraki_device:
-        meraki_api_key: "{{ meraki_api_key }}"
-        organizationId: "{{ org_name }}"
-        networkId: "{{ off_network.results.0.data.id }}"
-        state: present
-        serials: "{{ item.value.serial_no }}"
-        name: " {{ item.value.device_name }}"
-        move_map_marker: no
-      register: off_update_dev1
-      loop: "{{ lookup('dict', devices, wantlist=True) }}"
-
 
     - name: Bind a template from a network
       cisco.meraki.organizations_config_templates:
