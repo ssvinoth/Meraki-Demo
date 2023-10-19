@@ -40,7 +40,7 @@
         serials: "{{ item.value.serial_no }}"
         name: " {{ item.value.device_name }}"
       register: off_add_dev1
-      loop: "{{ lookup('dict', devices, wantlist=True) }}"
+      loop: "{{ lookup('dict', devices) }}"
 
     - name: Bind a template from a network
       cisco.meraki.organizations_config_templates:
