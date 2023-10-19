@@ -35,7 +35,7 @@
       cisco.meraki.networks_devices_claim:
         meraki_api_key: "{{ meraki_api_key }}"
         organizationId: "{{ org_name }}"
-        networkId: "{{ off_network.results.0.data.id }}"
+        networkId: "{{ off_network.results.0.meraki_response.id }}"
         state: present
         serials: "{{ item.value.serial_no }}"
         name: " {{ item.value.device_name }}"
