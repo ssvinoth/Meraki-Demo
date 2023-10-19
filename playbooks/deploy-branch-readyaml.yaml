@@ -40,11 +40,12 @@
       loop: "{{ lookup('dict', devices) }}"
 
     - name: Bind a template from a network
-      cisco.meraki.organizations_config_templates:
+      cisco.meraki.networks_bind:
         meraki_api_key: "{{ meraki_api_key }}"
         organizationId: "{{ org_name }}"
-        net_name: "{{ item.value.network_name }}"
-        name: "{{ item.value.template_name }}"
+        networkId: "{{ item.value.networkId }}"
+        configTemplateId: "{{ item.value.template_name }}"
+        autoBind: true
       delegate_to: localhost
       loop: "{{ lookup('dict', devices) }}"
       when: "'device-1' in item.key"
