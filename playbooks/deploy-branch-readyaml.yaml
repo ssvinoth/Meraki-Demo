@@ -50,7 +50,7 @@
         net_name: "{{ item.value.network_name }}"
         name: "{{ item.value.template_name }}"
       delegate_to: localhost
-      loop: "{{ lookup('dict', devices, wantlist=True) }}"
+      loop: "{{ lookup('dict', devices) }}"
       when: "'device-1' in item.key"
 
     - name: Add subnets
