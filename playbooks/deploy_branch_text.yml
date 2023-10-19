@@ -3,7 +3,7 @@
   hosts: localhost
   vars:
     meraki_api_key: "{{ meraki_key }}"
-    org_name: "Red Hat"
+    org_name: "{{ org_name }}"
 
   tasks:
 
@@ -20,10 +20,47 @@
     - name: Create site network
       cisco.meraki.networks:
         meraki_api_key: "{{ meraki_api_key }}"
+        organizationId: "{{ org_name }}"
         state: present
-        name: "Branch-Oren"
-        organizationId: "Red Hat"
+        name: "{{ item.value.network_name }}"
         productTypes:
           - switch
           - appliance
           - wireless
+      register: off_network
+      loop: "{{ lookup('dict', devices) }}"
+      when: "'device-1' in item.key"
+
+    - name: Add devices to Network
+      cisco.meraki.networks_devices_claim:
+        meraki_api_key: "{{ meraki_api_key }}"
+        organizationId: "{{ org_name }}"
+        networkId: "{{ off_network.results.0.data.id }}"
+        state: present
+        serials: "{{ item.value.serial_no }}"
+        name: " {{ item.value.device_name }}"
+      register: off_add_dev1
+      loop: "{{ lookup('dict', devices, wantlist=True) }}"
+
+    - name: Bind a template from a network
+      cisco.meraki.organizations_config_templates:
+        meraki_api_key: "{{ meraki_api_key }}"
+        state: present
+        organizationId: "{{ org_name }}"
+        net_name: "{{ item.value.network_name }}"
+        name: "{{ item.value.template_name }}"
+      delegate_to: localhost
+      loop: "{{ lookup('dict', devices, wantlist=True) }}"
+      when: "'device-1' in item.key"
+
+    - name: Add subnets
+      cisco.meraki.networks_appliance_vlans:
+        meraki_api_key: "{{ meraki_api_key }}"
+        org_name: "{{ org_name }}"
+        networkId: "{{ off_network.results.0.data.id }}"
+        state: present
+        name: "{{ item.value.name }}"
+        vlanId: "{{ item.value.vlan_id }}"
+        subnet: "{{ item.value.subnet }}"
+        applianceIp: "{{ item.value.default_gw }}"
+      loop: "{{ lookup('dict', addresses) }}"
