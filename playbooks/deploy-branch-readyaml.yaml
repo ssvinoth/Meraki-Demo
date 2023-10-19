@@ -31,7 +31,7 @@
 
     - name: Add devices to Network
       cisco.meraki.networks_devices_claim:
-        meraki_api_key: "{{ meraki_api__key }}"
+        meraki_api_key: "{{ meraki_api_key }}"
         organizationId: "{{ org_name }}"
         networkId: "{{ off_network.results.0.data.id }}"
         state: present
