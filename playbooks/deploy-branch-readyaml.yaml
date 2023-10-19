@@ -1,5 +1,5 @@
 ---
-- name: meraki deployment
+- name: Meraki deployment
   hosts: localhost
   vars:
     meraki_api_key: "{{ meraki_key }}"
@@ -7,12 +7,12 @@
 
   tasks:
 
-    - name: include variables for devices
+    - name: Include variables for devices
       include_vars:
         file: devices.yaml
         name: devices
 
-    - name: include variables for addresses
+    - name: Include variables for addresses
       include_vars:
         file: addresses.yaml
         name: addresses
@@ -38,7 +38,6 @@
         networkId: "{{ off_network.results.0.meraki_response.id }}"
         state: present
         serials: "{{ item.value.serial_no }}"
-        name: " {{ item.value.device_name }}"
       register: off_add_dev1
       loop: "{{ lookup('dict', devices) }}"
 
