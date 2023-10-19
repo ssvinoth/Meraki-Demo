@@ -22,12 +22,14 @@
         meraki_api_key: "{{ meraki_api_key }}"
         organizationId: "{{ org_name }}"
         state: present
-        name: "Branch-Oren"
+        name: "{{ item.value.network_name }}"
         productTypes:
           - switch
           - appliance
           - wireless
-        
+      register: off_network
+      loop: "{{ lookup('dict', devices) }}"
+      when: "'device-1' in item.key"
 
     - name: Add devices to Network
       cisco.meraki.networks_devices_claim:
