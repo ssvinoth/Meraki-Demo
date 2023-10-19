@@ -42,7 +42,7 @@
     - name: Bind a template from a network
       cisco.meraki.networks_bind:
         meraki_api_key: "{{ meraki_api_key }}"
-        networkId: L_624311498344262277
+        networkId: "L_624311498344262277"
         configTemplateId: "{{ item.value.template_name }}"
         autoBind: true
       delegate_to: localhost
