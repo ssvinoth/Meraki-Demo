@@ -1,0 +1,62 @@
+---
+- name: Meraki deployment
+  hosts: localhost
+  vars:
+    meraki_api_key: "{{ meraki_key }}"
+    org_name: "{{ org_name }}"
+
+  tasks:
+
+    - name: Include variables for devices
+      include_vars:
+        file: devices.yaml
+        name: devices
+
+    - name: Include variables for addresses
+      include_vars:
+        file: addresses.yaml
+        name: addresses
+
+    - name: Create site network
+      cisco.meraki.networks:
+        meraki_api_key: "{{ meraki_api_key }}"
+        organizationId: "{{ org_name }}"
+        state: present
+        name: "{{ item.value.network_name }}"
+        productTypes:
+          - switch
+          - appliance
+          - wireless
+      register: off_network
+      loop: "{{ lookup('dict', devices) }}"
+      when: "'device-1' in item.key"
+
+    - name: Add devices to Network
+      cisco.meraki.networks_devices_claim:
+        meraki_api_key: "{{ meraki_api_key }}"
+        networkId: "{{ off_network.results.0.meraki_response.id }}"
+        serials: "{{ item.value.serial_no }}"
+      register: off_add_dev1
+      loop: "{{ lookup('dict', devices) }}"
+
+    - name: Bind a template from a network
+      cisco.meraki.networks_bind:
+        meraki_api_key: "{{ meraki_api_key }}"
+        networkId: "L_624311498344262277"
+        configTemplateId: "{{ item.value.template_name }}"
+        autoBind: true
+      delegate_to: localhost
+      loop: "{{ lookup('dict', devices) }}"
+      when: "'device-1' in item.key"
+
+    - name: Add subnets
+      cisco.meraki.networks_appliance_vlans:
+        meraki_api_key: "{{ meraki_api_key }}"
+        org_name: "{{ org_name }}"
+        networkId: "{{ off_network.results.0.data.id }}"
+        state: present
+        name: "{{ item.value.name }}"
+        vlanId: "{{ item.value.vlan_id }}"
+        subnet: "{{ item.value.subnet }}"
+        applianceIp: "{{ item.value.default_gw }}"
+      loop: "{{ lookup('dict', addresses) }}"
