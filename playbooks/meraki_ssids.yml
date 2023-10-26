@@ -2,7 +2,7 @@
 - hosts: localhost
 
   vars_files:
-    - meraki_vars.yml
+    - meraki_wifi_vars.yml
   
   tasks:
     - name: Edit SSID Settings
