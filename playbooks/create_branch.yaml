@@ -39,16 +39,6 @@
       register: off_add_dev1
       loop: "{{ lookup('dict', devices) }}"
 
-    - name: Bind a template from a network
-      cisco.meraki.networks_bind:
-        meraki_api_key: "{{ meraki_api_key }}"
-        networkId: "L_624311498344262277"
-        configTemplateId: "{{ item.value.template_name }}"
-        autoBind: true
-      delegate_to: localhost
-      loop: "{{ lookup('dict', devices) }}"
-      when: "'device-1' in item.key"
-
     - name: Add subnets
       cisco.meraki.networks_appliance_vlans:
         meraki_api_key: "{{ meraki_api_key }}"
