@@ -43,8 +43,8 @@
       meraki_config_template:
         auth_key: "{{ meraki_api_key }}"
         state: present
-        org_name: "{{ org_name }}"
-        net_name: "{{ item.value.network_name }}"
+        org_name: "{{ orgname }}"
+        net_name: "{{ off_network.results.0.meraki_response.id }}"
         config_template: "{{ item.value.template_name }}"
       delegate_to: localhost
       loop: "{{ lookup('dict', devices) }}"
