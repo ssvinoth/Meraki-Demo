@@ -8,8 +8,7 @@
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
         meraki_api_key: "{{ meraki_key }}"
-        org_name: "{{ Org_Name }}"
-        net_name: "{{ Net_Name }}"
+        networkId: "{{ Net_Name }}"
         state: "{{ item.state | default('present') }}"
         name: "{{ item.name }}"
         number: "{{ item.number }}"
