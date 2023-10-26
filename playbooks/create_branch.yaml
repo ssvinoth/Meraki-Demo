@@ -29,7 +29,6 @@
           - wireless
       register: off_network
       loop: "{{ lookup('dict', devices) }}"
-      when: "'device-1' in item.key"
 
     - name: Add devices to Network
       cisco.meraki.networks_devices_claim:
