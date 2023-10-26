@@ -43,10 +43,11 @@
       cisco.meraki.networks_appliance_vlans:
         meraki_api_key: "{{ meraki_api_key }}"
         org_name: "{{ org_name }}"
-        networkId: "{{ off_add_dev1.results.0.meraki_response.id }}"
+        networkId: "{{ off_network.results.0.meraki_response.id }}"
         state: present
         name: "{{ item.value.name }}"
         vlanId: "{{ item.value.vlanId }}"
         subnet: "{{ item.value.subnet }}"
         applianceIp: "{{ item.value.default_gw }}"
+      register: off_add_subnets
       loop: "{{ lookup('dict', addresses) }}"
