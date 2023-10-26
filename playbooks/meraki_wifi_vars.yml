@@ -1,6 +1,8 @@
 ---
-Org_Name: "Red Hat"
 Net_Name: "Branch-Oren"
+meraki_api_key: "{{ meraki_key }}"
+org_name: "{{ org_name }}"
+
 SSID:
   - name: MyCompany_contractors
     number: 1
