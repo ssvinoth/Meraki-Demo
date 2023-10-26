@@ -42,7 +42,6 @@
     - name: Add subnets
       cisco.meraki.networks_appliance_vlans:
         meraki_api_key: "{{ meraki_api_key }}"
-        org_name: "{{ org_name }}"
         networkId: "{{ off_network.results.0.meraki_response.id }}"
         state: present
         name: "{{ item.value.name }}"
