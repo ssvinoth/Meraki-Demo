@@ -1,0 +1,23 @@
+---
+Org_Name: "Red Hat"
+Net_Name: "Branch-Oren"
+SSID:
+  - name: MyCompany_contractors
+    number: 1
+    enabled: true
+    auth_mode: psk
+    encryption_mode: wpa
+    psk: 4nsibl3P4sss!
+    state: present
+  - name: MyCompany_employees
+    number: 2
+    enabled: true
+    auth_mode: psk
+    encryption_mode: wpa
+    psk: 4nsibl3Visitors!
+  - name: MyCompany_customers
+    number: 3
+    enabled: true
+    auth_mode: psk
+    encryption_mode: wpa
+    psk: Ansible.2022
