@@ -47,7 +47,6 @@
         config_template: "{{ item.value.template_name }}"
       delegate_to: localhost
       loop: "{{ lookup('dict', devices) }}"
-      when: "'device-1' in item.key"
 
     - name: Add subnets
       cisco.meraki.networks_appliance_vlans:
