@@ -5,7 +5,8 @@ org_name: "{{ orgname }}"
 
 SSID:
   - debug:
-    var: hostvars['localhost']['off_network.results.0.meraki_response.id']
+      var: "Net_Name"
+    
   - name: MyCompany_employees
     number: 1
     enabled: true
