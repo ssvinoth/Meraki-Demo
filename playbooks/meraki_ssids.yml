@@ -6,7 +6,7 @@
   
   tasks:
   - debug:
-      var: "Net_Name"
+      var: "Net_Id"
       
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
