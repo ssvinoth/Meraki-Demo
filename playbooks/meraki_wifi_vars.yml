@@ -29,10 +29,10 @@ SSID:
       wpa_encryption_mode: WPA2 only
     state: present
     visible: true
-    available_on_all_aps: true
+    availableOnAllAps: true
     vlan:
-      use_vlan_tagging: true
-      default_vlan_id: 20
-    ip_assignment_mode: Bridge mode
-    lan_isolation_enabled: true
-    splash_page: None
+      useVlanTagging: true
+      defaultVlanId: 20
+    ipAssignmentMode: Bridge mode
+    lanIsolationEnabled: true
+    splashPage: None
