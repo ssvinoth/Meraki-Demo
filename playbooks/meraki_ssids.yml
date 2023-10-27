@@ -5,6 +5,9 @@
     - meraki_wifi_vars.yml
   
   tasks:
+  - debug:
+      var: "Net_Name"
+      
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
         meraki_api_key: "{{ meraki_key }}"
