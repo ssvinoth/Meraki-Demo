@@ -11,15 +11,28 @@ SSID:
     encryption_mode: wpa
     psk: 4nsibl3P4sss!
     state: present
+    
   - name: MyCompany_employees
     number: 2
     enabled: true
     auth_mode: psk
     encryption_mode: wpa
     psk: 4nsibl3Visitors!
+    
   - name: MyCompany_customers
     number: 3
     enabled: true
-    auth_mode: psk
-    encryption_mode: wpa
-    psk: Ansible.2022
+    authentication:
+      auth_mode: psk
+      encryption_mode: wpa
+      psk: Ansible.2022
+      wpa_encryption_mode: WPA2 only
+    state: present
+    visible: true
+    available_on_all_aps: true
+    vlan:
+      use_vlan_tagging: true
+      default_vlan_id: 20
+    ip_assignment_mode: Bridge mode
+    lan_isolation_enabled: true
+    splash_page: None
