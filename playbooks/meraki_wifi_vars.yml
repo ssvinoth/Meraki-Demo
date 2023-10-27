@@ -12,9 +12,7 @@ SSID:
       encryption_mode: wpa
       psk: 4nsibl3Employees!
       wpa_encryption_mode: WPA2 only
-    vlan:
-      useVlanTagging: true
-      defaultVlanId: 100
+    defaultVlanId: 100
     
   - name: MyCompany_customers
     number: 2
