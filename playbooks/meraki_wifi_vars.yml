@@ -16,6 +16,9 @@ SSID:
     vlan:
       useVlanTagging: true
       defaultVlanId: 100
+    ipAssignmentMode: Bridge mode
+    lanIsolationEnabled: true
+    splashPage: None
     
   - name: MyCompany_customers
     number: 2
@@ -47,6 +50,9 @@ SSID:
       useVlanTagging: true
       defaultVlanId: 300
     state: present
+    ipAssignmentMode: Bridge mode
+    lanIsolationEnabled: false
+    splashPage: None
     
   - name: MyCompany_cameras
     number: 4
@@ -59,4 +65,7 @@ SSID:
     vlan:
       useVlanTagging: true
       defaultVlanId: 400
+    ipAssignmentMode: Bridge mode
+    lanIsolationEnabled: false
+    splashPage: None
     state: present
