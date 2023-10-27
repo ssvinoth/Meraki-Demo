@@ -1,5 +1,4 @@
 ---
-Net_Name: hostvars['localhost']['off_network.results.0.meraki_response.id']
 meraki_api_key: "{{ meraki_key }}"
 org_name: "{{ orgname }}"
 
