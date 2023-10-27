@@ -5,8 +5,6 @@
     - meraki_wifi_vars.yml
   
   tasks:
-    - debug:
-        msg= "{{hostvars['localhost']['Net_Id']}}"
       
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
