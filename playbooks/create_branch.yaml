@@ -62,4 +62,5 @@
 
     - name: Save network ID
       set_fact:
-        Net_Id: "{{hostvars['localhost']['off_network.results.0.meraki_response.id']}}"
+        Net_Id_temp: "{{ off_network.results.0.meraki_response.id }}"
+        Net_Id: "{{hostvars['localhost']['Net_Id_temp']}}"
