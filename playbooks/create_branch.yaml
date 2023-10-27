@@ -62,4 +62,4 @@
 
     - name: Save network ID
       set_fact:
-        net_id: off_network
+        Net_Id: "{{ off_network.results.0.meraki_response.id }}"
