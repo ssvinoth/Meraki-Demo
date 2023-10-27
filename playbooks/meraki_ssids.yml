@@ -12,7 +12,7 @@
         state: "{{ item.state | default('present') }}"
         name: "{{ item.name }}"
         number: "{{ item.number }}"
-        encryption_mode: "{{ item.encryption_mode }}"
+        encryptionMode: "{{ item.encryption_mode }}"
         auth_mode: "{{ item.auth_mode }}"
         psk: "{{ item.psk }}" 
       delegate_to: localhost
