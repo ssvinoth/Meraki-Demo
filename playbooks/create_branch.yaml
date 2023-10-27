@@ -59,3 +59,8 @@
         applianceIp: "{{ item.value.default_gw }}"
       register: off_add_subnets
       loop: "{{ lookup('dict', addresses) }}"
+
+    - name: Debug registered var
+      debug:
+        var: off_network
+      when: hostvars['localhost']['off_network'] is defined
