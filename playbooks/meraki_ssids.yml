@@ -15,6 +15,14 @@
         number: "{{ item.number }}"
         encryptionMode: "{{ item.encryption_mode }}"
         authMode: "{{ item.auth_mode }}"
-        psk: "{{ item.psk }}" 
+        psk: "{{ item.psk }}"
+        wpaEncryptionMode: "{{ item.wpa_encryption_mode }}" when present
+        visible: "{{ item.visible | default('true')  }}"
+        availableOnAllAps: "{{ item.availableOnAllAps | default('false')  }}"
+        useVlanTagging: "{{ item.vlan.useVlanTagging | default('false')  }}"
+        defaultVlanId: "{{ item.vlan.defaultVlanId }}" when present
+        ipAssignmentMode: "{{ item.ipAssignmentMode }}"
+        lanIsolationEnabled: true
+        splashPage: "{{ item.splashPage }}"
       delegate_to: localhost
       loop: "{{ SSID }}"
