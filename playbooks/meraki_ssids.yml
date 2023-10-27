@@ -19,8 +19,8 @@
         wpaEncryptionMode: "{{ item.authentication.wpa_encryption_mode }}"
         visible: "{{ item.visible | default('true')  }}"
         availableOnAllAps: "{{ item.availableOnAllAps | default('false')  }}"
-        useVlanTagging: "{{ item.useVlanTagging | default('false')  }}"
-        defaultVlanId: "{{ item.defaultVlanId }}"
+        useVlanTagging: "{{ item.vlan.useVlanTagging | default('false')  }}"
+        defaultVlanId: "{{ item.vlan.defaultVlanId }}"
         ipAssignmentMode: "{{ item.ipAssignmentMode }}"
         lanIsolationEnabled: true
         splashPage: "{{ item.splashPage }}"
