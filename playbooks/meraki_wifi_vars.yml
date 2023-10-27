@@ -4,9 +4,6 @@ meraki_api_key: "{{ meraki_key }}"
 org_name: "{{ orgname }}"
 
 SSID:
-  - debug:
-      var: "Net_Name"
-    
   - name: MyCompany_employees
     number: 1
     enabled: true
