@@ -1,5 +1,5 @@
 ---
-Net_Name: "{{ net_name }}"
+Net_Name: "{{ off_network.results.0.meraki_response.id }}"
 meraki_api_key: "{{ meraki_key }}"
 org_name: "{{ orgname }}"
 
