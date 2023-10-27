@@ -4,23 +4,19 @@ meraki_api_key: "{{ meraki_key }}"
 org_name: "{{ orgname }}"
 
 SSID:
-  - name: MyCompany_contractors
-    number: 1
-    enabled: true
-    auth_mode: psk
-    encryption_mode: wpa
-    psk: 4nsibl3P4sss!
-    state: present
     
   - name: MyCompany_employees
-    number: 2
+    number: 1
     enabled: true
-    auth_mode: psk
+    authentication:
+      auth_mode: psk
+      encryption_mode: wpa
+      psk: 4nsibl3Employees!
+      wpa_encryption_mode: WPA2 only
     encryption_mode: wpa
-    psk: 4nsibl3Visitors!
     
   - name: MyCompany_customers
-    number: 3
+    number: 2
     enabled: true
     authentication:
       auth_mode: psk
@@ -36,3 +32,23 @@ SSID:
     ipAssignmentMode: Bridge mode
     lanIsolationEnabled: true
     splashPage: None
+    
+  - name: MyCompany_contractors
+    number: 3
+    enabled: true
+    authentication:
+      auth_mode: psk
+      encryption_mode: wpa
+      psk: Ansible.2022
+      wpa_encryption_mode: WPA2 only
+    state: present
+    
+  - name: MyCompany_cameras
+    number: 4
+    enabled: true
+    authentication:
+      auth_mode: psk
+      encryption_mode: wpa
+      psk: Ansible.2022
+      wpa_encryption_mode: WPA2 only
+    state: present
