@@ -16,11 +16,11 @@
         encryptionMode: "{{ item.encryption_mode }}"
         authMode: "{{ item.auth_mode }}"
         psk: "{{ item.psk }}"
-        wpaEncryptionMode: "{{ item.wpa_encryption_mode }}" when present
+        wpaEncryptionMode: "{{ item.wpa_encryption_mode }}"
         visible: "{{ item.visible | default('true')  }}"
         availableOnAllAps: "{{ item.availableOnAllAps | default('false')  }}"
         useVlanTagging: "{{ item.useVlanTagging | default('false')  }}"
-        defaultVlanId: "{{ item.defaultVlanId }}" when present
+        defaultVlanId: "{{ item.defaultVlanId }}"
         ipAssignmentMode: "{{ item.ipAssignmentMode }}"
         lanIsolationEnabled: true
         splashPage: "{{ item.splashPage }}"
