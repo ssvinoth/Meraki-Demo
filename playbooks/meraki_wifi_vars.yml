@@ -1,6 +1,7 @@
 ---
 meraki_api_key: "{{ meraki_key }}"
 org_name: "{{ orgname }}"
+org_id: "{{ org_id }}"
 
 SSID:
   - name: MyCompany_employees
