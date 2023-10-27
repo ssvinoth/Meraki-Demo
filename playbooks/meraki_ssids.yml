@@ -6,7 +6,7 @@
   
   tasks:
     - debug:
-        msg= "{{ Net_Id }} "
+        msg= "{{hostvars['localhost']['Net_Id']}}"
       
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
