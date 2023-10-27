@@ -60,7 +60,10 @@
       register: off_add_subnets
       loop: "{{ lookup('dict', addresses) }}"
 
-    - name: Save network ID
+    - name: Make network ID var persistant
       set_fact:
         Net_Id_temp: "{{ off_network.results.0.meraki_response.id }}"
+
+    - name: Set var per host
+      set_fact:
         Net_Id: "{{hostvars['localhost']['Net_Id_temp']}}"
