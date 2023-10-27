@@ -14,7 +14,7 @@
         name: "{{ item.name }}"
         number: "{{ item.number }}"
         encryptionMode: "{{ item.encryption_mode }}"
-        authMode: "{{ item.auth_mode }}"
+        authMode: "{{ item[2].auth_mode }}"
         psk: "{{ item.psk }}"
         wpaEncryptionMode: "{{ item.wpa_encryption_mode }}"
         visible: "{{ item.visible | default('true')  }}"
