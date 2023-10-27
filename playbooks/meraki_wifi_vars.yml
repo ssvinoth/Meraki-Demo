@@ -13,7 +13,9 @@ SSID:
       encryption_mode: wpa
       psk: 4nsibl3Employees!
       wpa_encryption_mode: WPA2 only
-    encryption_mode: wpa
+    vlan:
+      useVlanTagging: true
+      defaultVlanId: 100
     
   - name: MyCompany_customers
     number: 2
@@ -28,7 +30,7 @@ SSID:
     availableOnAllAps: true
     vlan:
       useVlanTagging: true
-      defaultVlanId: 20
+      defaultVlanId: 200
     ipAssignmentMode: Bridge mode
     lanIsolationEnabled: true
     splashPage: None
@@ -41,6 +43,9 @@ SSID:
       encryption_mode: wpa
       psk: Ansible.2022
       wpa_encryption_mode: WPA2 only
+    vlan:
+      useVlanTagging: true
+      defaultVlanId: 300
     state: present
     
   - name: MyCompany_cameras
@@ -51,4 +56,7 @@ SSID:
       encryption_mode: wpa
       psk: Ansible.2022
       wpa_encryption_mode: WPA2 only
+    vlan:
+      useVlanTagging: true
+      defaultVlanId: 400
     state: present
