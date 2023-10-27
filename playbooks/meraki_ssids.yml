@@ -9,6 +9,7 @@
       cisco.meraki.networks_wireless_ssids: 
         meraki_api_key: "{{ meraki_key }}"
         networkId: "{{ Net_Name }}"
+        enabled: "{{ item.enabled }}"
         state: "{{ item.state | default('present') }}"
         name: "{{ item.name }}"
         number: "{{ item.number }}"
