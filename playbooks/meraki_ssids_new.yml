@@ -19,7 +19,7 @@
       cisco.meraki.networks_wireless_ssids: 
         meraki_api_key: "{{ meraki_key }}"
         networkId: "{{ item.id }}"
-        register: "network_id_get"
+      register: "network_id_get"
       delegate_to: localhost
       loop: "{{ filtered_networks }}"
       loop_control:
