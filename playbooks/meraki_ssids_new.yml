@@ -23,7 +23,7 @@
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
         meraki_api_key: "{{ meraki_key }}"
-        networkId: "{{ network_id_get }}"
+        networkId: "{{ network_id_get.ansible_facts.filtered_networks.0.id }}"
         enabled: "{{ item.enabled }}"
         state: "{{ item.state | default('present') }}"
         name: "{{ item.name }}"
