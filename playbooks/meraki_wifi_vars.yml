@@ -1,5 +1,5 @@
 ---
-Net_Name: "Branch-Oren"
+Net_Name: "{{ net_name }}"
 meraki_api_key: "{{ meraki_key }}"
 org_name: "{{ orgname }}"
 
