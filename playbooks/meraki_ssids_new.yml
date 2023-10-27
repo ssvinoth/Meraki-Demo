@@ -15,10 +15,20 @@
       set_fact:
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
       
-    - name: Edit SSID Settings
+    - name: Get SSID Settings
       cisco.meraki.networks_wireless_ssids: 
         meraki_api_key: "{{ meraki_key }}"
         networkId: "{{ item.id }}"
+        register: "network_id_get"
+      delegate_to: localhost
+      loop: "{{ filtered_networks }}"
+      loop_control:
+        label: "{{ item.id }}"
+
+    - name: Edit SSID Settings
+      cisco.meraki.networks_wireless_ssids: 
+        meraki_api_key: "{{ meraki_key }}"
+        networkId: "{{ network_id_get }}"
         enabled: "{{ item.enabled }}"
         state: "{{ item.state | default('present') }}"
         name: "{{ item.name }}"
@@ -34,6 +44,4 @@
         ipAssignmentMode: "{{ item.ipAssignmentMode }}"
         lanIsolationEnabled: true
       delegate_to: localhost
-      loop: "{{ filtered_networks }}"
-      loop_control:
-        label: "{{ item.id }}"
+      loop: "{{ SSID }}"
