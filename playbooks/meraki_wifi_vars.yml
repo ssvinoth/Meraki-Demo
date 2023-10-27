@@ -18,7 +18,6 @@ SSID:
       defaultVlanId: 100
     ipAssignmentMode: Bridge mode
     lanIsolationEnabled: true
-    splashPage: None
     
   - name: MyCompany_customers
     number: 2
@@ -36,7 +35,6 @@ SSID:
       defaultVlanId: 200
     ipAssignmentMode: Bridge mode
     lanIsolationEnabled: true
-    splashPage: None
     
   - name: MyCompany_contractors
     number: 3
@@ -52,7 +50,6 @@ SSID:
     state: present
     ipAssignmentMode: Bridge mode
     lanIsolationEnabled: false
-    splashPage: None
     
   - name: MyCompany_cameras
     number: 4
@@ -67,5 +64,4 @@ SSID:
       defaultVlanId: 400
     ipAssignmentMode: Bridge mode
     lanIsolationEnabled: false
-    splashPage: None
     state: present
