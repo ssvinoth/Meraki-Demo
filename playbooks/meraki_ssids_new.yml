@@ -33,7 +33,6 @@
         psk: "{{ item.authentication.psk }}"
         wpaEncryptionMode: "{{ item.authentication.wpa_encryption_mode }}"
         visible: "{{ item.visible | default('true')  }}"
-        availableOnAllAps: "{{ item.availableOnAllAps | default('false')  }}"
         useVlanTagging: "{{ item.vlan.useVlanTagging | default('false')  }}"
         defaultVlanId: "{{ item.vlan.defaultVlanId }}"
       delegate_to: localhost
