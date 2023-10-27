@@ -36,7 +36,7 @@
         availableOnAllAps: "{{ item.availableOnAllAps | default('false')  }}"
         useVlanTagging: "{{ item.vlan.useVlanTagging | default('false')  }}"
         defaultVlanId: "{{ item.vlan.defaultVlanId }}"
-        ipAssignmentMode: "{{ item.ipAssignmentMode }}"
+        
         lanIsolationEnabled: true
       delegate_to: localhost
       loop: "{{ SSID }}"
