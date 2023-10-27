@@ -23,6 +23,5 @@
         defaultVlanId: "{{ item.vlan.defaultVlanId }}"
         ipAssignmentMode: "{{ item.ipAssignmentMode }}"
         lanIsolationEnabled: true
-        splashPage: "{{ item.splashPage }}"
       delegate_to: localhost
       loop: "{{ SSID }}"
