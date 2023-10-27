@@ -1,7 +1,7 @@
 ---
 Net_Name: "Branch-Oren"
 meraki_api_key: "{{ meraki_key }}"
-org_name: "{{ org_name }}"
+org_name: "{{ orgname }}"
 
 SSID:
   - name: MyCompany_contractors
