@@ -9,7 +9,7 @@
 
     - name: Include variables for devices
       include_vars:
-        file: devices.yaml
+        file: devices_notemplate.yaml
         name: devices
 
     - name: Include variables for addresses
