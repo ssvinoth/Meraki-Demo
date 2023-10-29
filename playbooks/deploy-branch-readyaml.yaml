@@ -14,7 +14,7 @@
 
     - name: Include variables for addresses
       include_vars:
-        file: addresses.yaml
+        file: addresses_notemplate.yaml
         name: addresses
 
     - name: Create site network
