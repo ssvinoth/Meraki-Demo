@@ -20,6 +20,8 @@
       set_fact:
         network_id_is: "{{ network_id_get.ansible_facts.filtered_networks.0.id }}"
       register: gatheredNetworkId
+
+    - debug:
         msg:
         - "Print gatheredNetworkId is '{{ gatheredNetworkId }}'"
 
