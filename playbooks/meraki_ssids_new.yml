@@ -16,15 +16,6 @@
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
       register: network_id_get
 
-    - name: Get and save NetworkId
-      set_fact:
-        network_id_is: "{{ network_id_get.ansible_facts.filtered_networks.0.id }}"
-      register: gatheredNetworkId
-
-    - debug:
-        msg:
-        - "Print gatheredNetworkId is '{{ gatheredNetworkId }}'"
-
     - debug:
         msg:
         - "Print filtered_networks.id is '{{ filtered_networks.0.id }}'"
@@ -32,7 +23,7 @@
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
         meraki_api_key: "{{ meraki_key }}"
-        networkId: "{{ network_id_get.ansible_facts.filtered_networks.0.id }}"
+        networkId: "{{ filtered_networks.0.id }}"
         enabled: "{{ item.enabled }}"
         state: "{{ item.state | default('present') }}"
         name: "{{ item.name }}"
@@ -43,5 +34,3 @@
         wpaEncryptionMode: "{{ item.authentication.wpa_encryption_mode }}"
       delegate_to: localhost
       loop: "{{ SSID }}"
-      loop_control: 
-        label: "{{ filtered_networks.id }}"
