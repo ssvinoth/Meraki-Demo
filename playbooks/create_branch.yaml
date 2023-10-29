@@ -59,18 +59,3 @@
         applianceIp: "{{ item.value.default_gw }}"
       register: off_add_subnets
       loop: "{{ lookup('dict', addresses) }}"
-
-    - name: Make network ID var persistant
-      set_fact:
-        Net_Id_temp: "{{ off_network.results.0.meraki_response.id }}"
-
-    - name: Set var per host
-      set_fact:
-        Net_Id: "{{hostvars['localhost']['Net_Id_temp']}}"
-
-    - name: Set timestamp on group_vars
-      lineinfile:
-        path: "{{ playbook_dir }}/group_vars/all"
-        insertafter: EOF
-        line: "Net_Id_temp: 'L_624311498344262313'"
-        state: present
