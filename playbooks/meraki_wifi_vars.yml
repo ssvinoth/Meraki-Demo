@@ -5,7 +5,7 @@ org_id: "{{ org_id }}"
 
 SSID:
   - name: MyCompany_employees
-    number: 1
+    number: 2
     enabled: true
     authentication:
       auth_mode: psk
@@ -15,7 +15,7 @@ SSID:
     defaultVlanId: 100
     
   - name: MyCompany_customers
-    number: 2
+    number: 3
     enabled: true
     authentication:
       auth_mode: psk
@@ -30,7 +30,7 @@ SSID:
       defaultVlanId: 200
     
   - name: MyCompany_contractors
-    number: 3
+    number: 4
     enabled: true
     authentication:
       auth_mode: psk
@@ -43,7 +43,7 @@ SSID:
     state: present
     
   - name: MyCompany_cameras
-    number: 4
+    number: 5
     enabled: true
     authentication:
       auth_mode: psk
