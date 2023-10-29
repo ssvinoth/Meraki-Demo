@@ -22,7 +22,7 @@
 
     - debug:
         msg:
-        - "Print filtered_networks.id is '{{ filtered_networks.id }}'"
+        - "Print filtered_networks.id is '{{ filtered_networks.0.id }}'"
      
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
