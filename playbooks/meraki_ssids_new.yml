@@ -14,12 +14,14 @@
     - name: Filter networks with "wireless" productTypes
       set_fact:
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
-        network_id_get: "{{ filtered_networks.0.id }}"
       register: network_id_get
 
-    - debug:
+    - name: Get and save NetworkId
+      set_fact:
+        network_id_is: "{{ network_id_get.ansible_facts.filtered_networks.0.id }}"
+      register: gatheredNetworkId
         msg:
-        - "Print network_id_get is '{{ network_id_get }}'"
+        - "Print gatheredNetworkId is '{{ gatheredNetworkId }}'"
 
     - debug:
         msg:
