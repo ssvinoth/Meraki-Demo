@@ -18,7 +18,11 @@
 
     - debug:
         msg:
-        - "Print network_id_get '{{ network_id_get.ansible_facts.filtered_networks.0.id }}'"
+        - "Print network_id_get is '{{ network_id_get.ansible_facts.filtered_networks.0.id }}'"
+
+    - debug:
+        msg:
+        - "Print filtered_networks.id is '{{ filtered_networks.id }}'"
      
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
