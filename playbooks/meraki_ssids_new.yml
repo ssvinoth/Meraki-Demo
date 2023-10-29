@@ -35,4 +35,4 @@
       delegate_to: localhost
       loop: "{{ SSID }}"
       loop_control: 
-        label: "{{ filtered_networks }}"
+        label: "{{ filtered_networks.id }}"
