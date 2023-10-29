@@ -33,6 +33,6 @@
         psk: "{{ item.authentication.psk }}"
         wpaEncryptionMode: "{{ item.authentication.wpa_encryption_mode }}"
       delegate_to: localhost
-      loop: "{{ filtered_networks }}"
+      loop: "{{ SSID }}"
       loop_control: 
-        label: "{{ SSID }}"
+        label: "{{ filtered_networks }}"
