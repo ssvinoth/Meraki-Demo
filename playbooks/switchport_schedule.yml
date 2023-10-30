@@ -5,12 +5,23 @@
     - meraki_wifi_vars.yml
   
   tasks:
-  - name: Create
+    - name: Get Organization Networks
+      cisco.meraki.networks_info:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_id }}"
+      register: result
+      
+    - name: Filter networks with "wireless" productTypes
+      set_fact:
+        filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
+      register: network_id_get
+  
+  - name: Create Port Scheule
     cisco.meraki.networks_switch_port_schedules:
       meraki_api_key: "{{ meraki_key }}"
       state: present
       name: Weekdays schedule
-      networkId: string
+      networkId: "{{ filtered_networks.0.id }}"
       portSchedule:
         friday:
           active: true
