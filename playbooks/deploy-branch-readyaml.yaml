@@ -43,6 +43,8 @@
         meraki_api_key: "{{ meraki_api_key }}"
         networkId: "{{ off_network.results.0.meraki_response.id }}"
         vlansEnabled: true
+      register: off_enable_vlans
+      loop: "{{ lookup('dict', addresses) }}"
 
     - name: Add subnets
       cisco.meraki.networks_appliance_vlans:
