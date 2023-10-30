@@ -38,6 +38,12 @@
       register: off_add_dev1
       loop: "{{ lookup('dict', devices) }}"
 
+    - name: Enable VLANs in the Network
+      cisco.meraki.networks_appliance_vlans_settings:
+        meraki_api_key: "{{ meraki_api_key }}"
+        networkId: "{{ off_network.results.0.meraki_response.id }}"
+        vlansEnabled: true
+
     - name: Add subnets
       cisco.meraki.networks_appliance_vlans:
         meraki_api_key: "{{ meraki_api_key }}"
