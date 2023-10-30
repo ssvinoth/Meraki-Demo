@@ -18,7 +18,7 @@
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
       register: network_id_get
   
-    - name: Create Port Scheule
+    - name: Create Port Schedule
       cisco.meraki.networks_switch_port_schedules:
         meraki_api_key: "{{ meraki_key }}"
         state: present
