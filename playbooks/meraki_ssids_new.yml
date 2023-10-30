@@ -15,10 +15,6 @@
       set_fact:
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
       register: network_id_get
-
-    - debug:
-        msg:
-        - "Print filtered_networks.id is '{{ filtered_networks.0.id }}'"
      
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
