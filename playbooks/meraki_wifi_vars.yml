@@ -5,7 +5,7 @@ org_id: "{{ org_id }}"
 
 SSID:
   - name: MyCompany_employees
-    number: 2
+    number: 1
     enabled: true
     authentication:
       auth_mode: psk
@@ -19,7 +19,7 @@ SSID:
     availableOnAllAps: true
     
   - name: MyCompany_customers
-    number: 3
+    number: 2
     enabled: true
     authentication:
       auth_mode: psk
@@ -36,8 +36,8 @@ SSID:
     availableOnAllAps: true
     
   - name: MyCompany_contractors
-    number: 4
-    enabled: true
+    number: 3
+    enabled: false
     authentication:
       auth_mode: psk
       encryption_mode: wpa
@@ -51,7 +51,7 @@ SSID:
     availableOnAllAps: true
     
   - name: MyCompany_cameras
-    number: 5
+    number: 4
     enabled: true
     authentication:
       auth_mode: psk
