@@ -14,6 +14,9 @@ SSID:
       wpa_encryption_mode: WPA2 only
     defaultVlanId: 100
     visible: false
+    ipAssignmentMode: 
+    availableOnAllAps: true
+    lanIsolationEnabled: true
     
   - name: MyCompany_customers
     number: 3
@@ -30,6 +33,8 @@ SSID:
       useVlanTagging: true
       defaultVlanId: 200
     visible: true
+    availableOnAllAps: true
+    lanIsolationEnabled: true
     
   - name: MyCompany_contractors
     number: 4
@@ -44,6 +49,8 @@ SSID:
       defaultVlanId: 300
     state: present
     visible: false
+    availableOnAllAps: true
+    lanIsolationEnabled: true
     
   - name: MyCompany_cameras
     number: 5
@@ -58,3 +65,5 @@ SSID:
       defaultVlanId: 400
     state: present
     visible: false
+    availableOnAllAps: true
+    lanIsolationEnabled: true
