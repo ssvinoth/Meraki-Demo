@@ -1,8 +1,10 @@
 ---
-- hosts: localhost
+- name: Create Port Scheduler
 
-  vars_files:
-    - meraki_wifi_vars.yml
+  hosts: localhost
+  vars:
+    meraki_api_key: "{{ meraki_key }}"
+    org_name: "{{ org_name }}"
   
   tasks:
     - name: Get Organization Networks
