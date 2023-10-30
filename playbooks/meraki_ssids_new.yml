@@ -28,5 +28,6 @@
         authMode: "{{ item.authentication.auth_mode }}"
         psk: "{{ item.authentication.psk }}"
         wpaEncryptionMode: "{{ item.authentication.wpa_encryption_mode }}"
+        visible: "{{ item.visible | default('true')  }}"
       delegate_to: localhost
       loop: "{{ SSID }}"
