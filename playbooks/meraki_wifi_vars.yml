@@ -14,7 +14,6 @@ SSID:
       wpa_encryption_mode: WPA2 only
     defaultVlanId: 100
     visible: false
-    ipAssignmentMode: 
     availableOnAllAps: true
     lanIsolationEnabled: true
     
