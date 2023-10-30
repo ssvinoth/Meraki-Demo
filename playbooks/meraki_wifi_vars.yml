@@ -13,6 +13,7 @@ SSID:
       psk: 4nsibl3Employees!
       wpa_encryption_mode: WPA2 only
     defaultVlanId: 100
+    visible: false
     
   - name: MyCompany_customers
     number: 3
@@ -28,6 +29,7 @@ SSID:
     vlan:
       useVlanTagging: true
       defaultVlanId: 200
+    visible: true
     
   - name: MyCompany_contractors
     number: 4
@@ -41,6 +43,7 @@ SSID:
       useVlanTagging: true
       defaultVlanId: 300
     state: present
+    visible: false
     
   - name: MyCompany_cameras
     number: 5
@@ -54,3 +57,4 @@ SSID:
       useVlanTagging: true
       defaultVlanId: 400
     state: present
+    visible: false
