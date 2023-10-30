@@ -7,7 +7,7 @@
   tasks:
   - name: Create
     cisco.meraki.networks_switch_port_schedules:
-      meraki_api_key: "{{meraki_api_key}}"
+      meraki_api_key: "{{ meraki_key }}"
       state: present
       name: Weekdays schedule
       networkId: string
