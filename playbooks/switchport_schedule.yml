@@ -16,38 +16,38 @@
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
       register: network_id_get
   
-  - name: Create Port Scheule
-    cisco.meraki.networks_switch_port_schedules:
-      meraki_api_key: "{{ meraki_key }}"
-      state: present
-      name: Weekdays schedule
-      networkId: "{{ filtered_networks.0.id }}"
-      portSchedule:
-        friday:
-          active: true
-          from: '9:00'
-          to: '19:00'
-        monday:
-          active: true
-          from: '9:00'
-          to: '19:00'
-        saturday:
-          active: false
-          from: 0:00
-          to: '24:00'
-        sunday:
-          active: false
-          from: 0:00
-          to: '24:00'
-        thursday:
-          active: true
-          from: '9:00'
-          to: '17:00'
-        tuesday:
-          active: true
-          from: '9:00'
-          to: '17:00'
-        wednesday:
-          active: true
-          from: '9:00'
-         to: '17:00'
+    - name: Create Port Scheule
+      cisco.meraki.networks_switch_port_schedules:
+        meraki_api_key: "{{ meraki_key }}"
+        state: present
+        name: Weekdays schedule
+        networkId: "{{ filtered_networks.0.id }}"
+        portSchedule:
+          friday:
+            active: true
+            from: '9:00'
+            to: '19:00'
+          monday:
+            active: true
+            from: '9:00'
+            to: '19:00'
+          saturday:
+            active: false
+            from: 0:00
+            to: '24:00'
+          sunday:
+            active: false
+            from: 0:00
+            to: '24:00'
+          thursday:
+            active: true
+            from: '9:00'
+            to: '17:00'
+          tuesday:
+            active: true
+            from: '9:00'
+            to: '17:00'
+          wednesday:
+            active: true
+            from: '9:00'
+           to: '17:00'
