@@ -1,5 +1,5 @@
 ---
-- name: Create Port Scheduler
+- name: Attach Port to Port Scheduler
 
   hosts: localhost
   vars:
@@ -18,8 +18,19 @@
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
       register: network_id_get
   
-    - name: Create Port Schedule
-      cisco.meraki.networks_switch_port_schedules:
+    - name: Attach Port Schedule
+      cisco.meraki.devices_switch_ports:
         meraki_api_key: "{{ meraki_key }}"
+        enabled: true
+        isolationEnabled: false
+        allowedVlans: 1,3,5-10
+        linkNegotiation: Auto negotiate
+        poeEnabled: true
         state: present
-        name: Weekdays schedule
+        portScheduleId: "Weekdays schedule"
+        rstpEnabled: true
+        stormControlEnabled: true
+        stpGuard: disabled
+        type: access
+        vlan: 10
+        voiceVlan: 20
