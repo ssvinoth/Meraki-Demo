@@ -1,35 +1,42 @@
-- name: Create
-  cisco.meraki.networks_switch_port_schedules:
-    meraki_api_key: "{{meraki_api_key}}"
-    state: present
-    name: Weekdays schedule
-    networkId: string
-    portSchedule:
-      friday:
-        active: true
-        from: '9:00'
-        to: '19:00'
-      monday:
-        active: true
-        from: '9:00'
-        to: '19:00'
-      saturday:
-        active: false
-        from: 0:00
-        to: '24:00'
-      sunday:
-        active: false
-        from: 0:00
-        to: '24:00'
-      thursday:
-        active: true
-        from: '9:00'
-        to: '17:00'
-      tuesday:
-        active: true
-        from: '9:00'
-        to: '17:00'
-      wednesday:
-        active: true
-        from: '9:00'
-        to: '17:00'
+---
+- hosts: localhost
+
+  vars_files:
+    - meraki_wifi_vars.yml
+  
+  tasks:
+  - name: Create
+    cisco.meraki.networks_switch_port_schedules:
+      meraki_api_key: "{{meraki_api_key}}"
+      state: present
+      name: Weekdays schedule
+      networkId: string
+      portSchedule:
+        friday:
+          active: true
+          from: '9:00'
+          to: '19:00'
+        monday:
+          active: true
+          from: '9:00'
+          to: '19:00'
+        saturday:
+          active: false
+          from: 0:00
+          to: '24:00'
+        sunday:
+          active: false
+          from: 0:00
+          to: '24:00'
+        thursday:
+          active: true
+          from: '9:00'
+          to: '17:00'
+        tuesday:
+          active: true
+          from: '9:00'
+          to: '17:00'
+        wednesday:
+          active: true
+          from: '9:00'
+         to: '17:00'
