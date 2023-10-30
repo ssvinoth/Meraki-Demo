@@ -1,7 +1,7 @@
 ---
  device-1:
     network_name: Branch-Oren
-    template_name: Store Template
+    template_name: Branch Template
     device_name: SCR-ICON-MS-1
     device_type: MS120-48LP
     serial_no: 	Q2GX-JLGD-HLJ6
@@ -12,7 +12,7 @@
     
  device-2:
     network_name: Branch-Oren
-    template_name: Store Template
+    template_name: Branch Template
     device_name: SCR-ICON-MR-1
     device_type: MR72
     serial_no: 	Q2DK-2RKY-4AQS
