@@ -9,7 +9,7 @@
 
     - name: Include variables for devices
       include_vars:
-        file: devices_notemplate.yml
+        file: devices_noserial.yml
         name: devices
 
     - name: Include variables for addresses
