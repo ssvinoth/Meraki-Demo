@@ -8,7 +8,7 @@
         organizationId: "{{ org_id }}"
       register: result
       
-    - name: Filter networks with "wireless" productTypes
+    - name: Filter networks with "camera" productTypes
       set_fact:
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'camera') | list }}"
       register: network_id_get
