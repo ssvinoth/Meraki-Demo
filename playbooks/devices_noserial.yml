@@ -3,7 +3,7 @@
     network_name: Branch-Oren
     device_name: SCR-ICON-MS-1
     device_type: MS120-48LP
-    serial_no: 	{{ "serial_no_1" }}
+    serial_no: 	"{{ serial_no_1 }}"
     vlan_id: 1
     gateway_ip: n/a
     dns_server1: 208.67.222.222
@@ -13,7 +13,7 @@
     network_name: Branch-Oren
     device_name: SCR-ICON-MR-1
     device_type: MR72
-    serial_no: 	{{ "serial_no_2" }}
+    serial_no: 	"{{ serial_no_2 }}"
     vlan_id: 1
     gateway_ip: n/a
     dns_server1: 208.67.222.222
