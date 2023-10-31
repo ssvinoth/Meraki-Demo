@@ -55,4 +55,4 @@
           value: 10.11.12.00/24
         - policy: deny
           type: applicationCategory
-          value: CN
+          value: 'CN'
