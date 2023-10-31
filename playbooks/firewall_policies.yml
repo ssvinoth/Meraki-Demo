@@ -54,5 +54,5 @@
           type: ipRange
           value: 10.11.12.00/24
         - policy: deny
-          type: blocked_countries
+          type: applicationCategory
           value: CN
