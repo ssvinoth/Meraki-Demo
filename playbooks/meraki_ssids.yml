@@ -5,11 +5,21 @@
     - meraki_wifi_vars.yml
   
   tasks:
+    - name: Get Organization Networks
+      cisco.meraki.networks_info:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_id }}"
+      register: result
       
+    - name: Filter networks with "wireless" productTypes
+      set_fact:
+        filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
+      register: network_id_get
+     
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 
         meraki_api_key: "{{ meraki_key }}"
-        networkId: "{{ Net_Name }}"
+        networkId: "{{ filtered_networks.0.id }}"
         enabled: "{{ item.enabled }}"
         state: "{{ item.state | default('present') }}"
         name: "{{ item.name }}"
@@ -22,6 +32,5 @@
         availableOnAllAps: "{{ item.availableOnAllAps | default('false')  }}"
         useVlanTagging: "{{ item.vlan.useVlanTagging | default('false')  }}"
         defaultVlanId: "{{ item.vlan.defaultVlanId }}"
-        lanIsolationEnabled: true
       delegate_to: localhost
       loop: "{{ SSID }}"
