@@ -25,7 +25,6 @@
         isolationEnabled: false
         allowedVlans: 1,3,5-10
         name: "Port 1"
-        portId: 1
         serial: 0c:8d:db:12:fa:54
         linkNegotiation: Auto negotiate
         poeEnabled: true
