@@ -13,14 +13,13 @@
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'appliance') | list }}"
       register: network_id_get
       
-    - name: Update by id
+    - name: Update allowed IPs for ICMP
       cisco.meraki.networks_appliance_firewall_firewalled_services:
         meraki_api_key: "{{ meraki_key }}"
         state: present
         access: restricted
         allowedIps:
         - 10.123.123.10
-        - 10.123.123.11
         networkId: "{{ filtered_networks.0.id }}"
         service: ICMP
 
