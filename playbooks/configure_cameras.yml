@@ -19,9 +19,9 @@
         state: present
         serial: "{{ camera_serial }}"
         ids:
-          backup: '0'
-          primary: '4'
-          secondary: '3'
+          backup: 'Demo-RF-Profile'
+          primary: 'Demo-RF-Profile'
+          secondary: 'Demo-RF-Profile'
 
     - name: Meraki-Demo-Quality-Profile
       cisco.meraki.devices_camera_quality_and_retention:
