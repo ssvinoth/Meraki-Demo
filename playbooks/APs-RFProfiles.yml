@@ -1,11 +1,25 @@
 ---
-- name: Create AP wireless profile
-  cisco.meraki.networks_camera_wireless_profiles:
-    meraki_api_key: "{{ meraki_key }}"
-    state: present
-    name: Demo-RF-Profile
-    networkId: string
-    ssid:
-      authMode: 8021x-radius
-      encryptionMode: wpa-eap
-      name: ssid test
+- hosts: localhost
+  
+  tasks:
+    - name: Get Organization Networks
+      cisco.meraki.networks_info:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_id }}"
+      register: result
+      
+    - name: Filter networks with "wireless" productTypes
+      set_fact:
+        filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
+      register: network_id_get
+      
+    - name: Create AP wireless profile
+      cisco.meraki.networks_camera_wireless_profiles:
+        meraki_api_key: "{{ meraki_key }}"
+        state: present
+        name: Demo-RF-Profile
+        networkId: string
+        ssid:
+          authMode: 8021x-radius
+          encryptionMode: wpa-eap
+          name: ssid test
