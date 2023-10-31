@@ -20,6 +20,7 @@
         access: restricted
         allowedIps:
         - 10.123.123.10
+        - 10.123.123.11
         networkId: "{{ filtered_networks.0.id }}"
         service: ICMP
 
