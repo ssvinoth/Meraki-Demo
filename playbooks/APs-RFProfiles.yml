@@ -18,7 +18,7 @@
         meraki_api_key: "{{ meraki_key }}"
         state: present
         name: Demo-RF-Profile
-        networkId: string
+        networkId: "{{ filtered_networks.0.id }}"
         ssid:
           authMode: 8021x-radius
           encryptionMode: wpa-eap
