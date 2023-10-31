@@ -4,6 +4,7 @@
   vars:
     meraki_api_key: "{{ meraki_key }}"
     org_name: "{{ org_name }}"
+    network_name: "{{ network_name }}"
 
   tasks:
 
@@ -22,7 +23,7 @@
         meraki_api_key: "{{ meraki_api_key }}"
         organizationId: "{{ org_name }}"
         state: present
-        name: "{{ item.value.network_name }}"
+        name: "{{ network_name }}"
         productTypes:
           - switch
           - appliance
