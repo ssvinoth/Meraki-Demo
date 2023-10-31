@@ -17,6 +17,7 @@
       cisco.meraki.devices_camera_wireless_profiles:
         meraki_api_key: "{{ meraki_key }}"
         state: present
+        serial: "{{ camera_serial }}"
         ids:
           backup: '0'
           primary: '4'
