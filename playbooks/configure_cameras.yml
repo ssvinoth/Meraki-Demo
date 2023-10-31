@@ -1,0 +1,23 @@
+
+- name: Meraki-Demo-Quality-Profile
+  cisco.meraki.devices_camera_quality_and_retention:
+    meraki_api_key: "{{meraki_key}}"
+    state: present
+    audioRecordingEnabled: false
+    motionBasedRetentionEnabled: false
+    motionDetectorVersion: 2
+    profileId: '1234'
+    quality: Standard
+    resolution: 1280x720
+    restrictedBandwidthModeEnabled: false
+    serial: string
+
+- name: Meraki-Demo-Camera-Profile
+  cisco.meraki.devices_camera_wireless_profiles:
+    meraki_api_key: "{{ meraki_key }}"
+    state: present
+    ids:
+      backup: '0'
+      primary: '4'
+      secondary: '3'
+    serial: string
