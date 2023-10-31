@@ -1,6 +1,6 @@
 ---
  subnet-2:
-    network_name: Branch-Oren
+    network_name: Branch
     name: Corp
     id: 10
     vlanId: 10
@@ -8,7 +8,7 @@
     default_gw: 10.10.10.1
 
  subnet-3:
-    network_name: Branch-Oren
+    network_name: Branch
     name: User
     id: 20
     vlanId: 20
@@ -16,7 +16,7 @@
     default_gw: 10.20.10.1
 
  subnet-4:
-    network_name: Branch-Oren
+    network_name: Branch
     name: IOT
     id: 30
     vlanId: 30
