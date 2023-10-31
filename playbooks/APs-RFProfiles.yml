@@ -20,6 +20,4 @@
         name: Demo-RF-Profile
         networkId: "{{ filtered_networks.0.id }}"
         ssid:
-          authMode: 8021x-radius
-          encryptionMode: wpa-eap
-          name: ssid test
+          name: "MyCompany_cameras"
