@@ -1,0 +1,36 @@
+---
+meraki_mr_configuration:
+  access_points:
+    - name: demo-mr44
+      organization: ORG NAME
+      network: NETWORK NAME
+      rf_profile_name: Demo-RF-Profile
+      general_settings:
+        ipv6_bridge_enabled: true
+        led_lights_on: true
+        location_analytics_enabled: true
+        meshing_enabled: false
+        upgrade_strategy: minimize_upgrade_time
+      bluetooth_settings:
+        scanning_enabled: true
+        beaconing_enabled: false
+      rf_profiles:
+        - name: Demo-RF-Profile
+          state: present
+          band_selection_type: ap
+          client_balancing_enabled: true
+          ap_band_settings:
+            mode: dual
+            band_steering_enabled: true
+          five_ghz_settings:
+            max_power: 30
+            min_bitrate: 12
+            min_power: 8
+            rxsop: -65
+            channel_width: 80
+          two_four_ghz_settings:
+            max_power: 30
+            min_bitrate: 12
+            min_power: 8
+            rxsop: -65
+            ax_enabled: true
