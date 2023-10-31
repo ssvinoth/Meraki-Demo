@@ -25,7 +25,7 @@
 
     - name: Meraki-Demo-Quality-Profile
       cisco.meraki.devices_camera_quality_and_retention:
-        meraki_api_key: "{{meraki_key}}"
+        meraki_api_key: "{{ meraki_key }}"
         state: present
         audioRecordingEnabled: false
         motionBasedRetentionEnabled: false
