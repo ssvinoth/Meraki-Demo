@@ -1,0 +1,54 @@
+---
+- hosts: localhost
+  
+  tasks:
+    - name: Get Organization Networks
+      cisco.meraki.networks_info:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_id }}"
+      register: result
+      
+    - name: Filter networks with "wireless" productTypes
+      set_fact:
+        filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'appliance') | list }}"
+      register: network_id_get
+      
+- name: Set icmp service to blocked
+  meraki_firewalled_services:
+    auth_key: '{{ auth_key }}'
+    state: present
+    org_name: '{{test_org_name}}'
+    net_name: IntTestNetworkAppliance
+    service: ICMP
+    access: blocked
+  delegate_to: localhost
+
+- name: Set icmp service to restricted
+  meraki_firewalled_services:
+    auth_key: abc123
+    state: present
+    org_name: YourOrg
+    net_name: YourNet
+    service: web
+    access: restricted
+    allowed_ips:
+      - 192.0.1.1
+      - 192.0.1.2
+  delegate_to: localhost
+
+- name: Query appliance services
+  meraki_firewalled_services:
+    auth_key: abc123
+    state: query
+    org_name: YourOrg
+    net_name: YourNet
+  delegate_to: localhost
+
+- name: Query services
+  meraki_firewalled_services:
+    auth_key: abc123
+    state: query
+    org_name: YourOrg
+    net_name: YourNet
+    service: ICMP
+  delegate_to: localhost
