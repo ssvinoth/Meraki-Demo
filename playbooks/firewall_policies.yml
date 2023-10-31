@@ -37,7 +37,7 @@
           protocol: Any
           srcCidr: Any
           srcPort: Any
-          syslogEnabled: true
+          syslogEnabled: false
 
     - name: Update L7 rules
       cisco.meraki.networks_appliance_firewall_l7_firewall_rules:
