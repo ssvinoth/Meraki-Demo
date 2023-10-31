@@ -22,3 +22,37 @@
         - 10.123.123.10
         networkId: "{{ filtered_networks.0.id }}"
         service: ICMP
+
+    - name: Update L3 rules
+      cisco.meraki.networks_appliance_firewall_l3_firewall_rules:
+        meraki_api_key: "{{ meraki_key }}"
+        state: present
+        networkId: "{{ filtered_networks.0.id }}"
+        rules:
+        - comment: Deny Traffic to 4.2.2.2
+          destCidr: 4.2.2.2
+          destPort: Any
+          policy: deny
+          protocol: Any
+          srcCidr: Any
+          srcPort: Any
+          syslogEnabled: false
+
+    - name: Update L7 rules
+      cisco.meraki.networks_appliance_firewall_l7_firewall_rules:
+        meraki_api_key: "{{ meraki_key }}"
+        state: present
+        networkId: "{{ filtered_networks.0.id }}"
+        rules:
+        - policy: deny
+          type: host
+          value: google.com
+        - policy: deny
+          type: port
+          value: '23'
+        - policy: deny
+          type: ipRange
+          value: 10.11.12.00/24
+        - policy: deny
+          type: blocked_countries
+          value: CN
