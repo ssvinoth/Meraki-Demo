@@ -21,3 +21,4 @@
         networkId: "{{ filtered_networks.0.id }}"
         ssid:
           name: "MyCompany_cameras"
+          authMode: "psk"
