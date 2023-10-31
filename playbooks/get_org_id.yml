@@ -1,1 +1,12 @@
+---
+- name: Get Org Id
 
+  hosts: localhost
+  vars:
+    meraki_api_key: "{{ meraki_key }}"
+  
+  tasks:
+    - name: Get Organization Networks
+      cisco.meraki.organizations_info::
+        meraki_api_key: "{{ meraki_key }}"
+      register: result
