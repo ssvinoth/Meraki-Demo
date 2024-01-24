@@ -54,7 +54,7 @@
         networkId: "{{ off_network.results.0.meraki_response.id }}"
         state: present
         name: "{{ item.value.name }}"
-        vlanId: "{{ item.value.vlan_id }}"
+        id: "{{ item.value.vlan_id }}"
         subnet: "{{ item.value.subnet }}"
         applianceIp: "{{ item.value.default_gw }}"
       register: off_add_subnets
