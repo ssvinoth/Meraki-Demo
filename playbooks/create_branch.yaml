@@ -30,13 +30,6 @@
       register: off_network
       loop: "{{ lookup('dict', devices) }}"
 
-    - name: Delete all devices from Network
-      cisco.meraki.networks_devices_remove:
-        meraki_api_key: "{{ meraki_api_key }}"
-        networkId: "{{ off_network.results.0.meraki_response.id }}"
-        serials: "{{ item.value.serial_no }}"
-      loop: "{{ lookup('dict', devices) }}"
-
     - name: Add devices to Network
       cisco.meraki.networks_devices_claim:
         meraki_api_key: "{{ meraki_api_key }}"
