@@ -9,12 +9,12 @@
 
     - name: Include variables for devices
       ansible.builtin.include_vars:
-        file: ../vars/max/devices.yaml
+        file: vars/max/devices.yaml
         name: devices
 
     - name: Include variables for addresses
       ansible.builtin.include_vars:
-        file: ../vars/max/addresses.yml
+        file: vars/max/addresses.yml
         name: addresses
 
     - name: Create site network
