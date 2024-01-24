@@ -1,6 +1,5 @@
 ---
-
- device-1:
+device-1:
    network_name: Cisco-Live-2024
    template_name: Store Template
    device_name: SCR-ICON-MS
