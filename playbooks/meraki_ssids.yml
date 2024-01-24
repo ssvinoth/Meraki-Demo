@@ -10,6 +10,11 @@
         meraki_api_key: "{{ meraki_key }}"
         organizationId: "{{ org_id }}"
       register: result
+    
+    - name: Debug Network Info
+      ansible.builtin.debug:
+        var: result
+      verbosity: 2
       
     - name: Filter networks with "wireless" productTypes
       set_fact:
