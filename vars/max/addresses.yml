@@ -5,7 +5,7 @@
     name: Corp
     vlan_id: 10
     subnet: 10.10.202.0/24
-    default_gw: 10.10.20.1
+    default_gw: 10.10.202.1
 
  subnet-3:
     network_name: Cisco-Live-2024
