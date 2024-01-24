@@ -8,12 +8,12 @@
   tasks:
 
     - name: Include variables for devices
-      include_vars:
+      ansible.builtin.include_vars:
         file: ../vars/max/devices.yml
         name: devices
 
     - name: Include variables for addresses
-      include_vars:
+      ansible.builtin.include_vars:
         file: addresses_notemplate.yml
         name: addresses
 
