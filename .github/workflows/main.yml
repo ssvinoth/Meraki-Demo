@@ -19,7 +19,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install ansible
-          ansible-galaxy install cisco.meraki
+          ansible-galaxy collection install cisco.meraki
 
       - name: Lint Ansible Playbook
         uses: ansible/ansible-lint-action@main
