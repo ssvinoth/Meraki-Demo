@@ -14,7 +14,7 @@
     - name: Debug Network Info
       ansible.builtin.debug:
         var: result
-      verbosity: 2
+        verbosity: 2
       
     - name: Filter networks with "wireless" productTypes
       set_fact:
