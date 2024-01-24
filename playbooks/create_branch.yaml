@@ -48,6 +48,14 @@
       delegate_to: localhost
       loop: "{{ lookup('dict', devices) }}"
 
+    - name: Enable VLANs for Networks
+      cisco.meraki.networks_appliance_vlans_settings:
+        meraki_api_key: "{{ meraki_api_key }}"
+        networkId: "{{ off_network.results.0.meraki_response.id }}"
+        state: present
+        vlansEnabled: true
+      delegate_to: localhost
+
     - name: Add subnets
       cisco.meraki.networks_appliance_vlans:
         meraki_api_key: "{{ meraki_api_key }}"
