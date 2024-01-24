@@ -1,0 +1,30 @@
+# CICD 
+
+name: CICD
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: 'vars/**'
+
+jobs:
+  lint: 
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Lint Ansible Playbook
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: |
+             playbooks/deploy-branch-readyaml.yaml
+          override-deps: |
+            ansible==2.8
+            ansible-lint==4.2.0
+
+      - shell: bash
+        env:
+          auth: ${{ secrets.MERAKIAPI }}
+        run: sh ./scripts/entrypoint.sh
