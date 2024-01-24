@@ -38,15 +38,15 @@
       register: off_add_dev1
       loop: "{{ lookup('dict', devices) }}"
 
-    - name: Bind a template from a network
-      meraki_config_template:
-        auth_key: "{{ meraki_api_key }}"
-        state: present
-        org_id: "{{ org_name }}"
-        net_id: "{{ off_network.results.0.meraki_response.id }}"
-        config_template: "{{ item.value.template_name }}"
-      delegate_to: localhost
-      loop: "{{ lookup('dict', devices) }}"
+    # - name: Bind a template from a network
+    #   meraki_config_template:
+    #     auth_key: "{{ meraki_api_key }}"
+    #     state: present
+    #     org_id: "{{ org_name }}"
+    #     net_id: "{{ off_network.results.0.meraki_response.id }}"
+    #     config_template: "{{ item.value.template_name }}"
+    #   delegate_to: localhost
+    #   loop: "{{ lookup('dict', devices) }}"
 
     - name: Add subnets
       cisco.meraki.networks_appliance_vlans:
