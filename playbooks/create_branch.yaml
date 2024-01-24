@@ -8,13 +8,13 @@
   tasks:
 
     - name: Include variables for devices
-      include_vars:
-        file: devices.yaml
+      ansible.builtin.file:
+        file: ../vars/max/devices.yaml
         name: devices
 
     - name: Include variables for addresses
-      include_vars:
-        file: addresses.yaml
+      ansible.builtin.file:
+        file: ../vars/max/addresses.yml
         name: addresses
 
     - name: Create site network

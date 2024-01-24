@@ -1,6 +1,7 @@
 ---
+
  device-1:
-    network_name: Scranton-Branch-ICON
+    network_name: Cisco-Live-2024
     template_name: Store Template
     device_name: SCR-ICON-MX
     device_type: MX64
@@ -11,7 +12,7 @@
     dns_server2: 208.67.220.220
 
  device-2:
-    network_name: Scranton-Branch-ICON
+    network_name: Cisco-Live-2024
     template_name: Store Template
     device_name: SCR-ICON-MS
     device_type: MS120-48LP
@@ -21,14 +22,13 @@
     dns_server1: 208.67.222.222
     dns_server2: 208.67.220.220
     
- device-3:
-    network_name: Scranton-Branch-ICON
-    template_name: Store Template
-    device_name: SCR-ICON-MR
-    device_type: MR72
-    serial_no: 	Q2DK-2RKY-4AQS
-    vlan_id: 1
-    gateway_ip: n/a
-    dns_server1: 208.67.222.223
-    dns_server2: 208.67.220.220
-
+#  device-3:
+#     network_name: Cisco-Live-2024
+#     template_name: Store Template
+#     device_name: SCR-ICON-MR
+#     device_type: MR72
+#     serial_no: 	Q2DK-2RKY-4AQS
+#     vlan_id: 1
+#     gateway_ip: n/a
+#     dns_server1: 208.67.222.223
+#     dns_server2: 208.67.220.222
