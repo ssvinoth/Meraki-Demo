@@ -1,6 +1,6 @@
 ---
+# takes variable network_name
 - hosts: localhost
-
   vars_files:
     - meraki_wifi_vars.yml
   
@@ -18,7 +18,8 @@
       
     - name: Filter networks with "wireless" productTypes
       set_fact:
-        filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
+#        filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
+        filtered_networks: "{{ result.meraki_response | selectattr('name', 'is', '{{ network_name }}') | list }}"
       register: network_id_get
      
     - name: Edit SSID Settings
