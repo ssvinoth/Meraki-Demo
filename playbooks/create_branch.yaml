@@ -15,6 +15,7 @@
         file: ../vars/max/addresses.yml
         name: addresses
 
+# Each element in 'productTypes' must be one of: 'appliance', 'camera', 'cellularGateway', 'sensor', 'switch', 'systemsManager' or 'wireless'"]}
     - name: Create site network
       cisco.meraki.networks:
         meraki_api_key: "{{ meraki_key }}"
@@ -22,7 +23,6 @@
         state: present
         name: "{{ item.value.network_name }}"
         productTypes:
-          - security
           - switch
           - appliance
           - wireless
