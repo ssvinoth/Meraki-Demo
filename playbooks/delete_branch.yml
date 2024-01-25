@@ -1,0 +1,12 @@
+---
+# takes network_name, org_name
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Delete site network
+      cisco.meraki.networks:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_name }}"
+        state: absent
+        name: "{{ network_name }}"

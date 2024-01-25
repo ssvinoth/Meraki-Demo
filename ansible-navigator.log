@@ -1,0 +1,7 @@
+2024-01-25T06:42:01.967665+00:00 WARNING 'ansible_navigator.image_manager.puller._log_message' Image inspection failed, image assumed to be corrupted or missing
+2024-01-25T06:42:01.968395+00:00 WARNING 'ansible_navigator.image_manager.puller._log_message' stdout: []
+
+2024-01-25T06:42:01.968430+00:00 WARNING 'ansible_navigator.image_manager.puller._log_message' stderr: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+2024-01-25T06:42:02.106809+00:00 ERROR 'ansible_navigator.image_manager.puller._log_message' Execution environment pull failed
+2024-01-25T06:42:02.106995+00:00 ERROR 'ansible_navigator.image_manager.puller._log_message' Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
