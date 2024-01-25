@@ -1,6 +1,7 @@
 ---
 # var network_name required
-- hosts: localhost
+- name: Firewall Polices Meraki
+  hosts: localhost
   gather_facts: false
 
   tasks:
@@ -15,7 +16,7 @@
       register: result
       
     - name: Filter networks with "appliance" productTypes
-      set_fact:
+      ansible.builting.set_fact:
         filtered_networks: "{{ result.meraki_response | selectattr('name', 'equalto', network_name ) | list }}"
       register: network_id_get
       
