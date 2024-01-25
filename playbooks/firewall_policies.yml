@@ -14,12 +14,12 @@
         meraki_api_key: "{{ meraki_key }}"
         organizationId: "{{ org_id }}"
       register: result
-      
+
     - name: Filter networks with "appliance" productTypes
       ansible.builtin.set_fact:
-        filtered_networks: "{{ result.meraki_response | selectattr('name', 'equalto', network_name ) | list }}"
+        filtered_networks: "{{ result.meraki_response | selectattr('name', 'equalto', network_name) | list }}"
       register: network_id_get
-    
+
     - name: Update allowed IPs for ICMP
       cisco.meraki.networks_appliance_firewall_firewalled_services:
         meraki_api_key: "{{ meraki_key }}"
