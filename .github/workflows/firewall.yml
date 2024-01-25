@@ -5,7 +5,7 @@ name: Firwall CICD
 on:
   push:
     branches: [ "main" ]
-    paths: 'vars/**'
+    paths: ['vars/max/firewall.yml']
 
 jobs:
   lint: 
@@ -22,9 +22,19 @@ jobs:
       - name: Lint Ansible Playbook
         uses: ansible/ansible-lint-action@main
         with:
-          path: 'playbooks/deploy-branch-readyaml.yaml'
-
-      # - shell: bash
-      #   env:
-      #     auth: ${{ secrets.MERAKIAPI }}
-      #   run: sh ./scripts/entrypoint.sh
+          path: 'playbooks/firewall_policies.yaml'
+      
+  automation_controller_job:
+    runs-on: ubuntu-latest
+    name: Launch Job on Ansible Controller
+    steps:
+      - name: Load the ansible-cloud action
+        id: controller_job
+        uses: ansible-cloud/aap_controller_action@3.0.5
+        with: 
+          controller_host: ${{ secrets.CONTROLLER_HOST }}
+          controller_username: ${{ secrets.CONTROLLER_USERNAME }}
+          controller_password: ${{ secrets.CONTROLLER_PASSWORD }}
+          job_template: "MERAKI - Day 0/2 - firewall policy"
+          extra_vars: ""
+          validate_certs: false
