@@ -22,6 +22,7 @@
         state: present
         name: "{{ item.value.network_name }}"
         productTypes:
+          - security
           - switch
           - appliance
           - wireless
