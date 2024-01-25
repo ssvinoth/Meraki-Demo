@@ -1,6 +1,6 @@
 # CICD 
 
-name: CICD
+name: Firwall CICD
 
 on:
   push:

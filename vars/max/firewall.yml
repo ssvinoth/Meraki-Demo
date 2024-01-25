@@ -1,0 +1,24 @@
+---
+allowed_icmp:
+  - 10.123.123.10
+
+l3_rules:
+  - comment: Deny Traffic to 4.2.2.2
+    destCidr: 4.2.2.2
+    destPort: Any
+    policy: deny
+    protocol: Any
+    srcCidr: Any
+    srcPort: Any
+    syslogEnabled: false
+
+l7_rules:
+  - policy: deny
+    type: host
+    value: google.com
+  - policy: deny
+    type: port
+    value: '23'
+  - policy: deny
+    type: ipRange
+    value: 10.11.12.00/24

@@ -1,8 +1,13 @@
 ---
 # var network_name required
 - hosts: localhost
-  
+  gather_facts: false
+
   tasks:
+    - name: Include Firewall vars
+      ansible.builtin.include_vars:
+        file: ../vars/max/firewall.yml
+
     - name: Get Organization Networks
       cisco.meraki.networks_info:
         meraki_api_key: "{{ meraki_key }}"
@@ -11,7 +16,6 @@
       
     - name: Filter networks with "appliance" productTypes
       set_fact:
- #       filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'appliance') | list }}"
         filtered_networks: "{{ result.meraki_response | selectattr('name', 'equalto', network_name ) | list }}"
       register: network_id_get
       
@@ -20,8 +24,7 @@
         meraki_api_key: "{{ meraki_key }}"
         state: present
         access: restricted
-        allowedIps:
-        - 10.123.123.10
+        allowedIps: "{{ allowed_icmp }}"
         networkId: "{{ filtered_networks.0.id }}"
         service: ICMP
 
@@ -30,28 +33,11 @@
         meraki_api_key: "{{ meraki_key }}"
         state: present
         networkId: "{{ filtered_networks.0.id }}"
-        rules:
-        - comment: Deny Traffic to 4.2.2.2
-          destCidr: 4.2.2.2
-          destPort: Any
-          policy: deny
-          protocol: Any
-          srcCidr: Any
-          srcPort: Any
-          syslogEnabled: false
+        rules: "{{ l3_rules }}"
 
     - name: Update L7 rules
       cisco.meraki.networks_appliance_firewall_l7_firewall_rules:
         meraki_api_key: "{{ meraki_key }}"
         state: present
         networkId: "{{ filtered_networks.0.id }}"
-        rules:
-        - policy: deny
-          type: host
-          value: google.com
-        - policy: deny
-          type: port
-          value: '23'
-        - policy: deny
-          type: ipRange
-          value: 10.11.12.00/24
+        rules: "{{ l7_rules }}"
