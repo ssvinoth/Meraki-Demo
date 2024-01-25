@@ -1,0 +1,36 @@
+# CICD 
+
+name: Firwall Webhook
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: ['vars/max/firewall.yml']
+
+jobs:
+  # lint: 
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  #     - uses: actions/checkout@v2
+      
+  #     - name: install dependencies
+  #       run: |
+  #         python -m pip install --upgrade pip
+
+  #     - name: Lint Ansible Playbook
+  #       uses: ansible/ansible-lint-action@main
+  #       with:
+  #         path: 'playbooks/firewall_policies.yaml'
+      
+  automation_controller_job:
+    runs-on: ubuntu-latest
+    name: Launch Job on Ansible Controller
+    steps:
+      - name: Trigger Webhook on Ansible Controller
+        id: controller_job
+        uses: distributhor/workflow-webhook@v3
+        with:
+          webhook_url: ${{ secrets.WEBHOOK_FIREWALL_URL }}
+          webhook_secret: ${{ secrets.WEBHOOK_FIREWALL_SECRET }}
