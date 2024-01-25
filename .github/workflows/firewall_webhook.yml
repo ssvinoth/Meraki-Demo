@@ -34,3 +34,4 @@ jobs:
         with:
           webhook_url: ${{ secrets.WEBHOOK_FIREWALL_URL }}
           webhook_secret: ${{ secrets.WEBHOOK_FIREWALL_SECRET }}
+          verify_ssl: false
