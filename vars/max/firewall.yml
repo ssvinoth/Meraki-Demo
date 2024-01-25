@@ -2,6 +2,7 @@
 allowed_icmp:
   - 10.123.123.10
   - 10.1.1.1
+  - 10.2.2.2
 
 l3_rules:
   - comment: Deny Traffic to 4.2.2.2
