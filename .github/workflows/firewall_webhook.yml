@@ -22,7 +22,7 @@ jobs:
       - name: Lint Ansible Playbook
         uses: ansible/ansible-lint-action@main
         with:
-          path: 'playbooks/firewall_policies.yaml'
+          path: 'playbooks/firewall_policies.yml'
       
   automation_controller_job:
     runs-on: ubuntu-latest
