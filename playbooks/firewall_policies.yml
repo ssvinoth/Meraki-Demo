@@ -1,4 +1,5 @@
 ---
+# var network_name required
 - hosts: localhost
   
   tasks:
@@ -10,7 +11,8 @@
       
     - name: Filter networks with "appliance" productTypes
       set_fact:
-        filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'appliance') | list }}"
+ #       filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'appliance') | list }}"
+        filtered_networks: "{{ result.meraki_response | selectattr('name', 'equalto', network_name ) | list }}"
       register: network_id_get
       
     - name: Update allowed IPs for ICMP
