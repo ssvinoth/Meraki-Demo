@@ -13,6 +13,14 @@ l3_rules:
     srcCidr: Any
     srcPort: Any
     syslogEnabled: false
+  - comment: Permit Traffic to 4.2.2.1
+    destCidr: 4.2.2.1
+    destPort: Any
+    policy: permit
+    protocol: Any
+    srcCidr: Any
+    srcPort: Any
+    syslogEnabled: false
 
 l7_rules:
   - policy: deny

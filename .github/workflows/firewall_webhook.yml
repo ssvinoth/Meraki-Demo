@@ -8,21 +8,21 @@ on:
     paths: ['vars/max/firewall.yml']
 
 jobs:
-  # lint: 
-  #   runs-on: ubuntu-latest
+  lint: 
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-  #     - uses: actions/checkout@v2
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
       
-  #     - name: install dependencies
-  #       run: |
-  #         python -m pip install --upgrade pip
+      - name: install dependencies
+        run: |
+          python -m pip install --upgrade pip
 
-  #     - name: Lint Ansible Playbook
-  #       uses: ansible/ansible-lint-action@main
-  #       with:
-  #         path: 'playbooks/firewall_policies.yaml'
+      - name: Lint Ansible Playbook
+        uses: ansible/ansible-lint-action@main
+        with:
+          path: 'playbooks/firewall_policies.yaml'
       
   automation_controller_job:
     runs-on: ubuntu-latest
