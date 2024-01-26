@@ -2,11 +2,22 @@
 - name: Get Org Id
 
   hosts: localhost
+  gather_facts: false
   vars:
     meraki_api_key: "{{ meraki_key }}"
-  
+
   tasks:
     - name: Get Organization Networks
       cisco.meraki.organizations_info:
         meraki_api_key: "{{ meraki_key }}"
       register: result
+
+    - name: Print all organization IDs
+      ansible.builtin.debug:
+        msg:
+          - "id: {{ item.id }}"
+          - "name: {{ item.name }}"
+          - "Region: {{ item.cloud.region.name }}"
+      loop: "{{ result.meraki_response }}"
+      loop_control:
+        label: "{{ item.name }}"

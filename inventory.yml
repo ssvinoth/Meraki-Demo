@@ -1,0 +1,11 @@
+all:
+  children:
+    ungrouped:
+      hosts:
+        localhost:
+          ansible_connection: local
+          ansible_python_interpreter: '{{ ansible_playbook_python }}'
+          meraki_key: "73b6167ec3dbce05b9a2a3855c75892195da01ac"
+          org_name: "828099381482762270"
+          org_id: "{{ org_name }}"
+          network_name: "Cisco-Live-2024"
