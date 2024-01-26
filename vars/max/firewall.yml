@@ -15,7 +15,7 @@ l3_rules:
   - comment: Permit Traffic to 4.2.2.1
     destCidr: 4.2.2.1
     destPort: Any
-    policy: permit
+    policy: allow
     protocol: Any
     srcCidr: Any
     srcPort: Any

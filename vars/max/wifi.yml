@@ -1,8 +1,4 @@
 ---
-meraki_api_key: "{{ meraki_key }}"
-org_name: "{{ orgname }}"
-org_id: "{{ org_id }}"
-
 SSID:
   - name: MyCompany_employees
     number: 1
@@ -32,8 +28,6 @@ SSID:
     vlan:
       useVlanTagging: true
       defaultVlanId: 200
-    visible: true
-    availableOnAllAps: true
     
   - name: MyCompany_contractors
     number: 3

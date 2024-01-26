@@ -1,10 +1,16 @@
 ---
 # takes variable network_name
 - hosts: localhost
-  vars_files:
-    - meraki_wifi_vars.yml
+  gather_facts: false
   
   tasks:
+    - name: Include Wifi vars
+      ansible.builtin.include_vars:
+        file: ../vars/max/wifi.yml
+    
+    - debug:
+        var: SSID
+
     - name: Get Organization Networks
       cisco.meraki.networks_info:
         meraki_api_key: "{{ meraki_key }}"
@@ -18,9 +24,11 @@
       
     - name: Filter networks with "wireless" productTypes
       set_fact:
-#        filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'wireless') | list }}"
         filtered_networks: "{{ result.meraki_response | selectattr('name', 'equalto', network_name ) | list }}"
       register: network_id_get
+
+    - debug: 
+        var: network_id_get
      
     - name: Edit SSID Settings
       cisco.meraki.networks_wireless_ssids: 

@@ -3,8 +3,6 @@
 
   hosts: localhost
   gather_facts: false
-  vars:
-    meraki_api_key: "{{ meraki_key }}"
 
   tasks:
     - name: Get Organization Networks
