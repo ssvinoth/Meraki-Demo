@@ -24,8 +24,8 @@
         name: "{{ item.value.network_name }}"
         productTypes:
           - switch
-          - appliance
           - wireless
+          - appliance
       register: off_network
       loop: "{{ lookup('dict', devices) }}"
 
