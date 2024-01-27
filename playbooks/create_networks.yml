@@ -1,0 +1,32 @@
+---
+- name: Create multiple networks 
+  hosts: localhost
+  gather_facts: false
+  tasks:
+
+    - name: Include variable file sites.yml
+      ansible.builtin.include_vars:
+        file: ../vars/max/sites.yml
+      tags: [always]
+
+    - name: Create networks
+      cisco.meraki.networks:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_name }}"
+        state: present
+        name: "{{ item.name }}"
+        productTypes: "{{ item.types }}"
+      register: _networks
+      loop: "{{ sites }}"
+      tags: [create]
+    
+    - name: Remove networks
+      cisco.meraki.networks:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_name }}"
+        state: absent
+        name: "{{ item.name }}"
+      register: _networks
+      loop: "{{ sites }}"
+      tags: [remove]
+

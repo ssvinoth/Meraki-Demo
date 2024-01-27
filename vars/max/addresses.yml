@@ -1,6 +1,6 @@
 --- 
  subnet-2:
-    network_name: Cisco-Live-2024
+    network_name: Site 1
     template_name: Store Template
     name: Corp
     vlan_id: 10
@@ -8,7 +8,7 @@
     default_gw: 10.10.202.1
 
  subnet-3:
-    network_name: Cisco-Live-2024
+    network_name: Site 1
     template_name: Store Template
     name: User
     vlan_id: 20
@@ -16,7 +16,7 @@
     default_gw: 10.20.20.1
 
  subnet-4:
-    network_name: Cisco-Live-2024
+    network_name: Site 1
     template_name: Store Template
     name: IOT
     vlan_id: 30

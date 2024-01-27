@@ -1,0 +1,35 @@
+---
+
+sites:
+  - name: Site 2
+    types:
+      - switch
+  - name: Site 3
+    types:
+      - switch
+      - wireless
+      - appliance
+  - name: Site 4
+    types:
+      - wireless
+  - name: Site 5
+    types:
+      - wireless
+  - name: Site 6
+    types: 
+      - switch
+      - wireless
+      - appliance
+  - name: Site 7
+    types:
+      - wireless
+  - name: Site 8
+    types:
+        - wireless
+  - name: Site 9
+    types:
+      - wireless
+  - name: Site 10
+    types:
+      - wireless
+  
