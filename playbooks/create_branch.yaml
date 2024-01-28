@@ -28,6 +28,7 @@
           - appliance
       register: off_network
       loop: "{{ lookup('dict', devices) }}"
+      run_once: true
 
     - name: Add devices to Network
       cisco.meraki.networks_devices_claim:

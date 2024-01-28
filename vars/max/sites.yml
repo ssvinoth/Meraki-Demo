@@ -1,6 +1,11 @@
 ---
 
 sites:
+  - name: Site 1
+    types: 
+      - switch
+      - wireless
+      - appliance
   - name: Site 2
     types:
       - switch
