@@ -2,6 +2,8 @@
 - name: Meraki deployment
   hosts: localhost
   gather_facts: false
+  vars: 
+    network_name: Site 1
 
   tasks:
 
@@ -15,25 +17,34 @@
         file: ../vars/max/addresses.yml
         name: addresses
 
-# Each element in 'productTypes' must be one of: 'appliance', 'camera', 'cellularGateway', 'sensor', 'switch', 'systemsManager' or 'wireless'"]}
-    - name: Create site network
-      cisco.meraki.networks:
+    - name: Get Organization Networks
+      cisco.meraki.networks_info:
         meraki_api_key: "{{ meraki_key }}"
-        organizationId: "{{ org_name }}"
-        state: present
-        name: "{{ item.value.network_name }}"
-        productTypes:
-          - switch
-          - wireless
-          - appliance
-      register: off_network
-      loop: "{{ lookup('dict', devices) }}"
-      run_once: true
+        organizationId: "{{ org_id }}"
+      register: result
+
+    - name: Filter networks with "appliance" productTypes
+      ansible.builtin.set_fact:
+        filtered_networks: "{{ result.meraki_response | selectattr('name', 'equalto', network_name) | list }}"
+      register: network_id_get
+
+# Each element in 'productTypes' must be one of: 'appliance', 'camera', 'cellularGateway', 'sensor', 'switch', 'systemsManager' or 'wireless'"]}
+    # - name: Create site network
+    #   cisco.meraki.networks:
+    #     meraki_api_key: "{{ meraki_key }}"
+    #     organizationId: "{{ org_name }}"
+    #     state: present
+    #     name: "{{ devices['device-1']['network_name'] }}"
+    #     productTypes:
+    #       - switch
+    #       - wireless
+    #       - appliance
+    #   register: off_network
 
     - name: Add devices to Network
       cisco.meraki.networks_devices_claim:
         meraki_api_key: "{{ meraki_key }}"
-        networkId: "{{ off_network.results.0.meraki_response.id }}"
+        networkId: "{{ filtered_networks.0.id }}"
         serials: "{{ item.value.serial_no }}"
       register: off_add_dev1
       loop: "{{ lookup('dict', devices) }}"
@@ -41,14 +52,14 @@
     - name: Enable VLANs for Network
       cisco.meraki.networks_appliance_vlans_settings:
         meraki_api_key: "{{ meraki_key }}"
-        networkId: "{{ off_network.results.0.meraki_response.id }}"
+        networkId: "{{ filtered_networks.0.id }}"
         state: present
         vlansEnabled: true
 
     - name: Add subnets
       cisco.meraki.networks_appliance_vlans:
         meraki_api_key: "{{ meraki_key }}"
-        networkId: "{{ off_network.results.0.meraki_response.id }}"
+        networkId: "{{ filtered_networks.0.id }}"
         state: present
         name: "{{ item.value.name }}"
         id: "{{ item.value.vlan_id }}"
