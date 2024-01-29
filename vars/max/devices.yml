@@ -2,8 +2,8 @@
 device-1:
    network_name: Site 1
    template_name: Store Template
-   device_name: SCR-ICON-MS
-   device_type: MS120-48LP
+   device_name: SCR-ICON-MS-1
+   device_type: MS350-48LP-HW
    serial_no: QBSB-AX45-LY9A
    vlan_id: 1
    gateway_ip: n/a
@@ -13,9 +13,42 @@ device-1:
 device-2:
    network_name: Site 1
    template_name: Store Template
-   device_name: SCR-ICON-MS
-   device_type: MS120-48LP
+   device_name: SCR-ICON-MS-2
+   device_type: MR33-HW
    serial_no: QBSB-BNH2-KDXJ
+   vlan_id: 1
+   gateway_ip: n/a
+   dns_server1: 208.67.222.222
+   dns_server2: 208.67.220.220
+
+device-3:
+   network_name: Site 1
+   template_name: Store Template
+   device_name: SCR-ICON-MS-3
+   device_type: MS350-48LP-HW
+   serial_no: QBSC-ALSL-3GXN	
+   vlan_id: 1
+   gateway_ip: n/a
+   dns_server1: 208.67.222.222
+   dns_server2: 208.67.220.220
+
+device-4:
+   network_name: Site 1
+   template_name: Store Template
+   device_name: SCR-ICON-MS-4
+   device_type: MV12N-HW
+   serial_no: QBSD-WABS-BH7V
+   vlan_id: 1
+   gateway_ip: n/a
+   dns_server1: 208.67.222.222
+   dns_server2: 208.67.220.220
+
+device-5:
+   network_name: Site 1
+   template_name: Store Template
+   device_name: SCR-ICON-MS-5
+   device_type: MX68W-HW
+   serial_no: QBSA-TFWJ-U4L9
    vlan_id: 1
    gateway_ip: n/a
    dns_server1: 208.67.222.222
