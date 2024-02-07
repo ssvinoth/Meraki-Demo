@@ -20,14 +20,6 @@ l3_rules:
     srcCidr: Any
     srcPort: Any
     syslogEnabled: false
-  - comment: Default rule
-    policy: allow
-    protocol: Any
-    srcPort: Any
-    srcCidr: Any
-    destPort: Any
-    destCidr: Any
-    syslogEnabled: false
 
 l7_rules:
   - policy: deny
