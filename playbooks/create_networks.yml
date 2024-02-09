@@ -1,5 +1,5 @@
 ---
-- name: Manage multiple networks 
+- name: Manage multiple networks
   hosts: localhost
   gather_facts: false
   tasks:

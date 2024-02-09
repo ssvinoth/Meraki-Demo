@@ -1,13 +1,14 @@
 ---
-- hosts: localhost
-  
+- name: Camera configuration
+  hosts: localhost
+
   tasks:
     - name: Get Organization Networks
       cisco.meraki.networks_info:
         meraki_api_key: "{{ meraki_key }}"
         organizationId: "{{ org_id }}"
       register: result
-      
+    
     - name: Filter networks with "camera" productTypes
       set_fact:
         filtered_networks: "{{ result.meraki_response | selectattr('productTypes', 'contains', 'camera') | list }}"
