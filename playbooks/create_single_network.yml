@@ -1,0 +1,28 @@
+---
+- name: Meraki deployment
+  hosts: localhost
+  gather_facts: false
+  vars: 
+    network_name: 'Site 2'
+
+  tasks:
+
+
+# Each element in 'productTypes' must be one of: 'appliance', 'camera', 'cellularGateway', 'sensor', 'switch', 'systemsManager' or 'wireless'"]}
+    - name: Create site network
+      cisco.meraki.networks:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_name }}"
+        state: present
+        name: "{{ network_name }}"
+        productTypes:
+          - switch
+          - wireless
+          - appliance
+      register: off_network
+     
+    - debug:
+        var: off_network['meraki_response']['id']
+        #verbosity: 2
+
+
