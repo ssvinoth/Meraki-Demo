@@ -32,16 +32,16 @@
      
     - debug:
         var: off_network['meraki_response']['id']
-        verbosity: 2
+        #verbosity: 2
 
-    - name: Add devices to Network
-      cisco.meraki.networks_devices_claim:
-        meraki_api_key: "{{ meraki_key }}"
-        networkId: "{{ off_network['meraki_response']['id'] }}"
-        serials: "{{ item.value.serial_no }}"
-      register: off_add_dev1
-      loop: "{{ lookup('dict', devices) }}"
-      ignore_errors: true
+    # - name: Add devices to Network
+    #   cisco.meraki.networks_devices_claim:
+    #     meraki_api_key: "{{ meraki_key }}"
+    #     networkId: "{{ off_network['meraki_response']['id'] }}"
+    #     serials: "{{ item.value.serial_no }}"
+    #   register: off_add_dev1
+    #   loop: "{{ lookup('dict', devices) }}"
+    #   ignore_errors: true
 
     - name: Enable VLANs for Network
       cisco.meraki.networks_appliance_vlans_settings:
