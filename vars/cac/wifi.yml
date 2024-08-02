@@ -6,7 +6,6 @@ SSID:
     authentication:
       auth_mode: psk
       encryption_mode: wpa
-      psk: 4nsibl3Employees!
       wpa_encryption_mode: WPA2 only
     vlan:
       use_vlan_tagging: true
@@ -20,7 +19,6 @@ SSID:
     authentication:
       auth_mode: psk
       encryption_mode: wpa
-      psk: Ansible.2022
       wpa_encryption_mode: WPA2 only
     state: present
     visible: true
@@ -35,7 +33,6 @@ SSID:
     authentication:
       auth_mode: psk
       encryption_mode: wpa
-      psk: Ansible.2022
       wpa_encryption_mode: WPA2 only
     vlan:
       useVlanTagging: true
@@ -51,6 +48,20 @@ SSID:
       auth_mode: psk
       encryption_mode: wpa
       psk: Ansible.2022
+      wpa_encryption_mode: WPA2 only
+    vlan:
+      useVlanTagging: true
+      defaultVlanId: 400
+    state: present
+    visible: false
+    availableOnAllAps: true
+
+  - name: guest_wifi
+    number: 4
+    enabled: true
+    authentication:
+      auth_mode: psk
+      encryption_mode: wpa
       wpa_encryption_mode: WPA2 only
     vlan:
       useVlanTagging: true

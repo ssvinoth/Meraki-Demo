@@ -6,7 +6,7 @@
 
     - name: Include variable file sites.yml
       ansible.builtin.include_vars:
-        file: ../vars/max/sites.yml
+        file: ../vars/cac/sites.yml
       tags: [always]
 
     - name: Create networks

@@ -6,17 +6,11 @@
   tasks:
     - name: Include Wifi vars
       ansible.builtin.include_vars:
-        file: ../vars/max/wifi.yml
+        file: ../vars/cac/wifi.yml
     
-    - debug:
-        var: SSID
-
     - name: Include Wifi psks vault vars
       ansible.builtin.include_vars:
-        file: ../vars/max/wifi_psks_vault.yml
-    
-    - debug:
-        var: SSID_PSKS
+        file: ../vars/cac/wifi_psks_vault.yml    
 
     - name: Get Organization Networks
       cisco.meraki.networks_info:
@@ -47,7 +41,6 @@
         number: "{{ item.number }}"
         encryptionMode: "{{ item.authentication.encryption_mode }}"
         authMode: "{{ item.authentication.auth_mode }}"
-        #psk: "{{ item.authentication.psk }}"
         psk: "{{ SSID_PSKS[item.name] | default(SSID_PSKS['default_psk']) }}"
         wpaEncryptionMode: "{{ item.authentication.wpa_encryption_mode }}"
         visible: "{{ item.visible | default('true')  }}"
@@ -56,3 +49,4 @@
         defaultVlanId: "{{ item.vlan.defaultVlanId }}"
       delegate_to: localhost
       loop: "{{ SSID }}"
+      no_log: true

@@ -9,12 +9,12 @@
 
     - name: Include variables for devices
       ansible.builtin.include_vars:
-        file: ../vars/max/devices.yml
+        file: ../vars/cac/devices.yml
         name: devices
 
     - name: Include variables for addresses
       ansible.builtin.include_vars:
-        file: ../vars/max/addresses.yml
+        file: ../vars/cac/addresses.yml
         name: addresses
 
 # Each element in 'productTypes' must be one of: 'appliance', 'camera', 'cellularGateway', 'sensor', 'switch', 'systemsManager' or 'wireless'"]}

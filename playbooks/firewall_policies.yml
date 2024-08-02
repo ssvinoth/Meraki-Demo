@@ -7,7 +7,7 @@
   tasks:
     - name: Include Firewall vars
       ansible.builtin.include_vars:
-        file: ../vars/max/firewall.yml
+        file: ../vars/cac/firewall.yml
 
     - name: Get Organization Networks
       cisco.meraki.networks_info:
