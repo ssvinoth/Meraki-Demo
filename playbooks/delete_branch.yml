@@ -2,6 +2,8 @@
 # takes network_name, org_name
 - hosts: localhost
   gather_facts: false
+  vars:
+    network_name: 'Site 1'
 
   tasks:
     - name: Delete site network
