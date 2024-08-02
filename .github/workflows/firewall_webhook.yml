@@ -5,7 +5,7 @@ name: Firwall Webhook
 on:
   push:
     branches: [ "main" ]
-    paths: ['vars/max/firewall.yml']
+    paths: ['vars/cac/firewall.yml']
 
 jobs:
   lint: 
