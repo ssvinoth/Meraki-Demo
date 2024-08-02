@@ -47,7 +47,6 @@ SSID:
     authentication:
       auth_mode: psk
       encryption_mode: wpa
-      psk: Ansible.2022
       wpa_encryption_mode: WPA2 only
     vlan:
       useVlanTagging: true
