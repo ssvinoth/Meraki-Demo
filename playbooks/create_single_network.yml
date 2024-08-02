@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: false
   vars: 
-    network_name: 'Site 2'
+    network_name: 'Site 1'
 
   tasks:
 
@@ -19,6 +19,7 @@
           - switch
           - wireless
           - appliance
+          - camera
       register: off_network
      
     - debug:
