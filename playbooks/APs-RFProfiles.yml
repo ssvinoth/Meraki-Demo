@@ -1,6 +1,8 @@
 ---
-- hosts: localhost
-  
+# takes variable network_name
+- name: Create AP Wireless Profiles
+  hosts: localhost
+  gather_facts: false
   tasks:
     - name: Get Organization Networks
       cisco.meraki.networks_info:
@@ -23,3 +25,4 @@
         ssid:
           name: "MyCompany_cameras"
           authMode: "psk"
+          psk: "{{ SSID_PSKS['MyCompany_cameras'] | default(SSID_PSKS['default_psk']) }}"
