@@ -1,6 +1,6 @@
 # CICD 
 
-name: Firwall Webhook
+name: Firewall Webhook
 
 on:
   push:
