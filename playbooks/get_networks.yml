@@ -1,0 +1,13 @@
+---
+# takes network_name, org_name
+- hosts: localhost
+  gather_facts: false
+  vars:
+    # network_name: 'Site 1'
+
+  tasks:
+    - name: Get all Networks in the org
+      cisco.meraki.networks_info:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_id }}"
+      register: result
