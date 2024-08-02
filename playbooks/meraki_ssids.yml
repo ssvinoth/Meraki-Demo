@@ -11,6 +11,13 @@
     - debug:
         var: SSID
 
+    - name: Include Wifi psks vault vars
+      ansible.builtin.include_vars:
+        file: ../vars/max/wifi_psks_vault.yml
+    
+    - debug:
+        var: SSID_PSKS
+
     - name: Get Organization Networks
       cisco.meraki.networks_info:
         meraki_api_key: "{{ meraki_key }}"
@@ -40,7 +47,8 @@
         number: "{{ item.number }}"
         encryptionMode: "{{ item.authentication.encryption_mode }}"
         authMode: "{{ item.authentication.auth_mode }}"
-        psk: "{{ item.authentication.psk }}"
+        #psk: "{{ item.authentication.psk }}"
+        psk: "{{ SSID_PSKS[item.name] | default(SSID_PSKS['default_psk']) }}"
         wpaEncryptionMode: "{{ item.authentication.wpa_encryption_mode }}"
         visible: "{{ item.visible | default('true')  }}"
         availableOnAllAps: "{{ item.availableOnAllAps | default('false')  }}"
