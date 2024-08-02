@@ -58,7 +58,7 @@ SSID:
 
   - name: guest_wifi
     number: 4
-    enabled: true
+    enabled: false
     authentication:
       auth_mode: psk
       encryption_mode: wpa
