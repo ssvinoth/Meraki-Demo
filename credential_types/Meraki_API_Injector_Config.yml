@@ -1,0 +1,2 @@
+extra_vars:
+  meraki_key: '{{ MERAKI_KEY }}'

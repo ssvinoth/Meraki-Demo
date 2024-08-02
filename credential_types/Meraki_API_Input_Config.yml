@@ -1,0 +1,5 @@
+fields:
+  - id: MERAKI_KEY
+    type: string
+    label: Meraki Dashboard API Key
+    secret: true
