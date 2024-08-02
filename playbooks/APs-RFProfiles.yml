@@ -4,6 +4,10 @@
   hosts: localhost
   gather_facts: false
   tasks:
+    - name: Include Wifi psks vault vars
+      ansible.builtin.include_vars:
+        file: ../vars/cac/wifi_psks_vault.yml   
+        
     - name: Get Organization Networks
       cisco.meraki.networks_info:
         meraki_api_key: "{{ meraki_key }}"
