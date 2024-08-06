@@ -1,0 +1,50 @@
+---
+- name: Meraki deployment
+  hosts: localhost
+  gather_facts: false
+  vars: 
+    network_name: Site 1
+
+  tasks:
+
+    - name: Include variables for devices
+      ansible.builtin.include_vars:
+        file: ../vars/cac/devices.yml
+        name: devices
+
+    - name: Include variables for addresses
+      ansible.builtin.include_vars:
+        file: ../vars/cac/addresses.yml
+        name: addresses
+
+    - name: Get Organization Networks
+      cisco.meraki.networks_info:
+        meraki_api_key: "{{ meraki_key }}"
+        organizationId: "{{ org_id }}"
+      register: result
+
+    - name: Get network id
+      ansible.builtin.set_fact:
+        network_id: "{{ filtered_networks.0.id }}"
+      vars:
+        filtered_networks: "{{ result.meraki_response | selectattr('name', 'equalto', network_name) | list }}"
+      register: network_id_get
+
+    - name: Enable VLANs for Network
+      cisco.meraki.networks_appliance_vlans_settings:
+        meraki_api_key: "{{ meraki_key }}"
+        networkId: "{{ network_id }}"
+        state: present
+        vlansEnabled: true
+
+    - name: Add subnets
+      cisco.meraki.networks_appliance_vlans:
+        meraki_api_key: "{{ meraki_key }}"
+        networkId: "{{ network_id }}"
+        state: present
+        name: "{{ item.value.name }}"
+        id: "{{ item.value.vlan_id }}"
+        subnet: "{{ item.value.subnet }}"
+        applianceIp: "{{ item.value.default_gw }}"
+      register: off_add_subnets
+      loop: "{{ lookup('dict', addresses) }}"
