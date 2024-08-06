@@ -1,0 +1,10 @@
+---
+- name: Notify and Report Config Failures
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    # TODO: Here we will notify ITSM, Network operators
+    - name: Notify and Report Failure
+      ansible.builtin.debug:
+        msg: 
+          - "Meraki Site Configuration Failed"
